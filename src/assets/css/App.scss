@@ -1,0 +1,13 @@
+$primary-color: #333;
+$secondary-color: red;
+$margin: 16px;
+
+.app{
+  border-color: $primary-color;
+  color: darken($primary-color, 10%);
+  text-align: center;
+}
+
+.mission{
+  color: darken($secondary-color, 10%);
+}
