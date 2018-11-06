@@ -14,13 +14,14 @@ module.exports = {
 
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
+      
     },
     ecmaVersion: 2018,
     sourceType: "module"
   },
-  "parser":"babel-eslint",
-  plugins: ["react", "import", ],
+  "parser": "babel-eslint",
+  plugins: ["react", "import"],
   rules: {
     "indent": ["error", 2],
     "linebreak-style": ["error", "unix"],
