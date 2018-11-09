@@ -1,7 +1,14 @@
 {
   "name": "ah-frontend-lannister",
   "scripts": {},
-  "env": {},
+  "env": {
+    "REACT_APP_CLIENT_ID": {
+      "required": true
+    },
+    "REACT_APP_APP_ID": {
+      "required": true
+    }
+  },
   "formation": {
     "web": {
       "quantity": 1

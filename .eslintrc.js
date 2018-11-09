@@ -2,21 +2,25 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
-    mocha: true
+    mocha: true,
+    jest: true,
+    node:true
   },
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:import/recommended"
   ],
+
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     ecmaVersion: 2018,
     sourceType: "module"
   },
-  plugins: ["react", "import"],
+  "parser":"babel-eslint",
+  plugins: ["react", "import", ],
   rules: {
     "indent": ["error", 2],
     "linebreak-style": ["error", "unix"],

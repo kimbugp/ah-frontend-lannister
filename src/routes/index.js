@@ -1,6 +1,7 @@
 import React from "react";
 import Home from "../components";
 import Login from "../components/login";
+import SocialAuth from "../components/auth/socialAuth";
 import {BrowserRouter,Route,Switch} from "react-router-dom";
 
 export default function AppRoutes(){
@@ -9,8 +10,8 @@ export default function AppRoutes(){
       <Switch>
         <Route path="/" component={Home} exact strict/>
         <Route path="/login" component={Login} exact strict/>
-        {/* Add your routes here */}
-      </Switch>
+        <Route path="/register" component={SocialAuth}exact strict/>
+      </Switch> 
     </BrowserRouter>
   );
 
