@@ -1,5 +1,4 @@
 body {
-    background: rgba(38,20,76,.7);
     font-family: 'Roboto', sans-serif;
     z-index: 1;
 }
@@ -7,8 +6,9 @@ body {
     font-size: 16px;
     transition: all 0.4s;
     box-shadow: none;
-    width: 91%;
+    width: 100%;
     padding: .5rem 1rem; 
+    border-radius: 50px !important;
 
 }
 .form-control:focus {
@@ -37,6 +37,13 @@ body {
     text-align: center;
     font-size: 34px;
     margin: 10px 0 15px;
+    text-align: center;
+}
+.signup-form h1 {
+    text-align: center;
+    font-size: 34px;
+    margin: 10px 0 15px;
+    text-align: center;
 }
 .signup-form .hint-text {
     color: #999;
@@ -56,6 +63,7 @@ body {
     text-align: center;
     border-color: #5cb85c;
     transition: all 0.4s;
+    border-radius: 50px !important;
 }
 .signup-btn:hover {
     background: #5cb85c;
@@ -67,7 +75,6 @@ body {
     border-top: 1px solid #e0e0e0;
 }
 .or-seperator b {
-    padding: 0 10px;
     width: 40px;
     height: 40px;
     font-size: 16px;
@@ -110,13 +117,13 @@ body {
     margin: 3px 10px;
     font-size: 20px;
 }
-.text-center {
+.center-text {
     color:white;
     font-family: 'Lato', sans-serif;
-}
-
-#reset-form,#reset-form-1,#reset-form-2{
-    border-radius: 50px;
+    font-size:17px;
+    border-color: #02B875;
+    background-color: #fff;
+    text-align: center;
 }
 .btn-success {
     color: #fff;
@@ -149,4 +156,8 @@ input.active:invalid {
       color: red;
       font-size: 12px;
       margin-top: 5px;
+}
+#home-icon {
+    width: 30px;
+    height: 30px;
 }

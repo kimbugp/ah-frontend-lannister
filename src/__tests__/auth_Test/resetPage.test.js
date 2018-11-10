@@ -3,7 +3,7 @@ import { mount} from "enzyme";
 import UserEmail,{PasswordReset} from "../../components/auth/passwordReset/passwordResetPage";
 
 import { Provider } from "react-redux";
-import InvokeReset from "../../actions/authActions.js/passswordResetAction";
+import InvokeReset from "../../actions/authActions/passswordResetAction";
 import thunk from "redux-thunk";
 import { createStore, applyMiddleware } from "redux";
 import rootReducer from "../../reducers/rootReducer";

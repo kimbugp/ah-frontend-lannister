@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { newPasswordRequest } from "../../../actions/authActions.js/passswordResetAction";
+import { newPasswordRequest } from "../../../actions/authActions/passswordResetAction";
 import { connect } from "react-redux";
 import EmailSuccess from "../../../views/authViews/EmailSuccess";
 import Form from "../../../views/authViews/newPasswordForm";
@@ -33,7 +33,7 @@ export class ResetPage extends React.Component {
     });
     let token = localStorage.getItem("token");
     event.target.confirmPassword.setCustomValidity("");
-    if (this.state.password === event.target.confirmPassword.value) {
+    if (this.state.password === this.state.confirmPassword) {
       this.setState({ disabled: false });
       this.props.newPasswordRequest(
         { user: { password: this.state.password } },
@@ -56,9 +56,13 @@ export class ResetPage extends React.Component {
     } else {
       this.setState({ divclass: "form-group" });
       event.target.setCustomValidity("");
-      
     }
   };
+  handleChange = event => {
+    this.setState({ confirmPassword: event.target.value, psw2: "form-group" });
+    event.target.setCustomValidity("");
+  };
+
   redirect = () => {
     let path = "/login";
     this.props.history.push(path);
