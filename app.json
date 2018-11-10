@@ -7,12 +7,11 @@
     },
     "REACT_APP_APP_ID": {
       "required": true
-    }
-  },
-  "formation": {
-    "web": {
-      "quantity": 1
-    }
+    },
+    "formation": {
+      "web": {
+        "quantity": 1
+      }
   },
   "addons": [],
   "buildpacks": [
@@ -20,4 +19,5 @@
       "url": "heroku/nodejs"
     }
   ]
+}
 }

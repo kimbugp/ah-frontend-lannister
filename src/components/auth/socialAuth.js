@@ -51,6 +51,7 @@ SocialAuth.propTypes = {
   googleAuth: PropTypes.func
 };
 const mapStateToProps = state => ({
+  user:state.userReducer.user,
   isLoggedIn: state.userReducer.isLoggedIn
 });
 export default connect(
