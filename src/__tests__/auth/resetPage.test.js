@@ -7,6 +7,8 @@ import InvokeReset from "../../actions/authActions/passswordResetAction";
 import thunk from "redux-thunk";
 import { createStore, applyMiddleware } from "redux";
 import rootReducer from "../../reducers/rootReducer";
+import Button from "../../components/common/button";
+import Input from "../../components/common/input";
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
@@ -50,6 +52,16 @@ describe("after sending email",()=>{
     component.update();
     component.find("button").simulate("click", {});
   });
+});
+it("test  button", () => {
+  let component=mount(<Button/>);
+  component.setProps({user:{status:404}});
+  component.update();
+  component.find("button").simulate("click", {});
+});
+it("test input ", () => {
+  let component=mount(<Input btnClass={"primary"}/>);
+  component.update();
 });
 export function testRender(component, newProps,status) {
   component.setProps({ user: { status} });

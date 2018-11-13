@@ -1,7 +1,7 @@
 import { facebookAuth, googleAuth } from "../../actions/authActions/socialAuth";
-import { BASEURL } from "../../actions/authActions";
+import  {BASE_URL}  from "../../appUrls/index";
 import { simpleAction } from "../../actions/simpleAction";
-import { configureMock } from "../login.test";
+import { configureMock } from "./login.test";
 
 const response_data = {
   user: {
@@ -16,7 +16,7 @@ describe("socialAuth actions", () => {
     ({ mock, store } = configureMock(mock, store));
   });
   const helperMethod = (url, action) => {
-    mock.onPost(BASEURL + url).reply(200, response_data);
+    mock.onPost(BASE_URL + url).reply(200, response_data);
     action(response_data)(store.dispatch);
     expect(store.getActions()).toEqual([]);
   };

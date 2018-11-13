@@ -87,7 +87,7 @@ const newArticle = ({
                             type="button"
                             id="create-button"
                             className="btn btn-sm"
-                            onSubmit={handlePublish}
+                            onClick={handlePublish}
                           >
                             Publish
                           </button>

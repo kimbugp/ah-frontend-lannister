@@ -7,7 +7,7 @@ import { simpleAction } from "../../actions/simpleAction";
 import { SIMPLE_ACTION } from "../../actions/actionTypes";
 
 import axios from "axios";
-import { BASE_URL } from "../../appUrls/urls";
+import { BASE_URL } from "../../appUrls/index";
 
 const data = {
   user: {

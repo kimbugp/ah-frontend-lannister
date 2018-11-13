@@ -1,6 +1,6 @@
 import { SOCIAL_AUTH, LOGIN } from "../actionTypes";
 import axios from "axios";
-import { BASEURL } from ".";
+import { BASE_URL } from "../../appUrls/index";
 
 const SocialLogin = payload=>({
   type:SOCIAL_AUTH,
@@ -13,7 +13,7 @@ const LogIn = payload=>({
 
 export const facebookAuth  =  (acessToken)=>  dispatch =>{
    
-  axios.post(BASEURL+"facebook/", acessToken)
+  axios.post(BASE_URL+"facebook/", acessToken)
     .then(res => {
       localStorage.setItem("token",res.data.user.token);
       dispatch(SocialLogin(res.data.user));
@@ -23,7 +23,7 @@ export const facebookAuth  =  (acessToken)=>  dispatch =>{
     });};
 export const googleAuth = (acessToken)=> dispatch =>{
    
-  axios.post(BASEURL+"google/", acessToken)
+  axios.post(BASE_URL+"google/", acessToken)
    
     .then(res => {
       localStorage.setItem("token",res.data.token);

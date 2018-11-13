@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SocialLogin from "../components/auth/socialAuth";
+import SocialLogin from "../../components/auth/socialAuth";
 import { AvForm, AvField } from "availity-reactstrap-validation";
 import { Button} from "reactstrap";
-import logo from "../assets/img/home.png";
+import logo from "../../assets/img/home.png";
 import PropTypes from "prop-types";
 
 const LoginView = props => (

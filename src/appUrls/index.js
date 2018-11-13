@@ -5,3 +5,4 @@ export const API_URLS = {
   PUBLISH_CREATE_ARTICLES: `${BASE_URL}/api/articles/{}/publish/`,
   FETCH_ARTICLE_CATEGORIES: `${BASE_URL}/api/categories/`
 };
+export const LOGIN_URL = `${BASE_URL}/api/users/login/`;

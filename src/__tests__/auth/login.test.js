@@ -1,12 +1,12 @@
-import LoginView from "../views/login";
+import LoginView from "../../views/authViews/login";
 import { shallow } from "enzyme";
 import React from "react";
-import { Login } from "../components/login";
-import { LOGIN_URL } from "../appUrls/urls";
+import { Login } from "../../components/auth/login";
+import { LOGIN_URL } from "../../appUrls/index";
 import MockAdapter from "axios-mock-adapter";
 import axios from "axios";
 import configureMockStore from "redux-mock-store";
-import LoginAction from "../actions/authActions/loginAction";
+import LoginAction from "../../actions/authActions/loginAction";
 
 it("should contain a button", () => {
   let login = shallow(<LoginView />);

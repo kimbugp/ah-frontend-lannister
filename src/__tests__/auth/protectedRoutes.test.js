@@ -1,4 +1,4 @@
-import ProtectedRoute, { Authenticate } from "../routes/protectedRoutes";
+import ProtectedRoute, { Authenticate } from "../../routes/protectedRoutes";
 import { shallow } from "enzyme";
 import React from "react";
 
