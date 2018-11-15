@@ -1,6 +1,6 @@
 import React from "react";
 import "../../../assets/authAssets/form.css";
-import InvokeReset from "../../../actions/authActions.js/passswordResetAction";
+import InvokeReset from "../../../actions/authActions/passswordResetAction";
 import { connect } from "react-redux";
 import "../../../assets/authAssets/error.css";
 import EmailSuccess from "../../../views/authViews/EmailSuccess";
@@ -24,7 +24,7 @@ export class PasswordReset extends React.Component {
     this.props.InvokeReset(input);
   };
   redirect=()=>{
-    let path = "/login";
+    let path = "/register";
     this.props.history.push(path);
   }
   render() {

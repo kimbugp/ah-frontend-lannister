@@ -23,19 +23,19 @@ export class SocialAuth extends Component {
       return <Redirect to="/" />;
     }
     return (
-      <div>
+      <div style={{textAlign:"center"}}>
         <FacebookLogin
           appId={APP_ID}
           fields="name,email,picture"
           callback={this.handleFacebookResponse}
-          textButton=" Facebook"
+          textButton=""
           cssClass="c-facebook"
           icon="fa fa-facebook"
         />
 
         <GoogleLogin
           clientId={CLIENT_ID}
-          buttonText=" Google"
+          buttonText=""
           onSuccess={this.handleGoogleResponse}
           onFailure={this.handleGoogleResponse}
           className="fa fa-google c-google"
@@ -46,7 +46,7 @@ export class SocialAuth extends Component {
 }
 SocialAuth.propTypes = {
   user: PropTypes.object,
-  isLoggedIn: PropTypes.bool,
+  isLoggedIn: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
   facebookAuth: PropTypes.func,
   googleAuth: PropTypes.func
 };

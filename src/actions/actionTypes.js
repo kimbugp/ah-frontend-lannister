@@ -1,6 +1,7 @@
 export const SIMPLE_ACTION = "SIMPLE_ACTION";
 export const SOCIAL_AUTH ="SOCIAL_AUTH";
 export const LOGIN= "LOGIN";
+export const EMAIL_LOGIN="EMAIL_LOGIN";
 export const PASSWORD_RESET= "PASSWORD_RESET";
 export const NEW_PASSWORD="NEW_PASSWORD";
 export const USER_NOT_FOUND="USER_NOT_FOUND";

@@ -1,6 +1,6 @@
-import { PASSWORD_RESET, NEW_PASSWORD, USER_NOT_FOUND } from "../actionTypes";
+import { PASSWORD_RESET} from "../actionTypes";
 import axios from "axios";
-import { BASE_URL } from "../../appUrls/Urls";
+import { BASE_URL } from "../../appUrls/urls";
 
 const InvokeReset = data => dispatch => {
   axios
@@ -13,7 +13,7 @@ const InvokeReset = data => dispatch => {
     })
     .catch(error => {
       dispatch({
-        type: USER_NOT_FOUND,
+        type: PASSWORD_RESET,
         payload: error.response
       });
     });
@@ -26,14 +26,14 @@ export const newPasswordRequest = (data, token) => dispatch => {
     })
     .then(res => {
       const resetPassword = {
-        type: NEW_PASSWORD,
+        type: PASSWORD_RESET,
         payload: res.status
       };
       dispatch(resetPassword);
     })
     .catch(error => {
       dispatch({
-        type: USER_NOT_FOUND,
+        type: PASSWORD_RESET,
         payload: error.response
       });
     });

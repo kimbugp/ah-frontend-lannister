@@ -8,7 +8,7 @@ const SocialLogin = payload=>({
 });
 const LogIn = payload=>({
   type:LOGIN,
-  payload
+  status:payload
 });
 
 export const facebookAuth  =  (acessToken)=>  dispatch =>{

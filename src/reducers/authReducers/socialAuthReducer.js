@@ -1,4 +1,4 @@
-import { SOCIAL_AUTH, LOGIN} from "../../actions/actionTypes";
+import { SOCIAL_AUTH, LOGIN, EMAIL_LOGIN} from "../../actions/actionTypes";
 
 const initialState = {
   user:{},
@@ -16,6 +16,11 @@ export default function userReducer(state = initialState, action) {
     return {
       ...state,
       isLoggedIn:action.payload
+    };
+  case EMAIL_LOGIN:
+    return{
+      ...state,
+      user:action.payload
     };
   default:
     return state;

@@ -2,12 +2,12 @@ import MockAdapter from "axios-mock-adapter";
 import configureMockStore from "redux-mock-store";
 import InvokeReset, {
   newPasswordRequest
-} from "../../actions/authActions.js/passswordResetAction";
+} from "../../actions/authActions/passswordResetAction";
 import { simpleAction } from "../../actions/simpleAction";
 import { SIMPLE_ACTION } from "../../actions/actionTypes";
 
 import axios from "axios";
-import { BASE_URL } from "../../appUrls/Urls";
+import { BASE_URL } from "../../appUrls/urls";
 
 const data = {
   user: {
@@ -62,7 +62,7 @@ describe("password update actions ", () => {
     ]);
   });
 });
-function testAction(method, url, status) {
+export function testAction(method, url, status) {
   if (method === "post") {
     mock.onPost(url).reply(status, responseData);
     InvokeReset(data)(store.dispatch);

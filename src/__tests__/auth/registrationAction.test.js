@@ -3,7 +3,7 @@ import configureMockStore from "redux-mock-store";
 import { signUpAction } from "../../actions/authActions/signUpAction";
 
 import axios from "axios";
-import { BASE_URL } from "../../appUrls/Urls";
+import { BASE_URL } from "../../appUrls/urls";
 
 const data = {
   user: {

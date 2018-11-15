@@ -1,9 +1,7 @@
-import MockAdapter from "axios-mock-adapter";
-import configureMockStore from "redux-mock-store";
-import axios from "axios";
 import { facebookAuth, googleAuth } from "../../actions/authActions/socialAuth";
 import { BASEURL } from "../../actions/authActions";
 import { simpleAction } from "../../actions/simpleAction";
+import { configureMock } from "../login.test";
 
 const response_data = {
   user: {
@@ -15,9 +13,7 @@ describe("socialAuth actions", () => {
   let store;
   let mock;
   beforeEach(() => {
-    mock = new MockAdapter(axios);
-    const mockStore = configureMockStore();
-    store = mockStore({});
+    ({ mock, store } = configureMock(mock, store));
   });
   const helperMethod = (url, action) => {
     mock.onPost(BASEURL + url).reply(200, response_data);
