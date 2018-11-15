@@ -5,7 +5,9 @@ const initialState = {
   next: null,
   previous: null,
   article: {},
-  results: []
+  articles:[],
+  results: [],
+  onearticle:{read_time:"00:00:00"}
 };
 
 const articlesReducer = (state = initialState, action) => {
@@ -14,12 +16,22 @@ const articlesReducer = (state = initialState, action) => {
   case ACTION_TYPE.NEW_ARTICLE:
     return {
       ...state,
-      article: action.payload
+      article: action.payload,
     };
   case ACTION_TYPE.PUBLISH_ARTICLE:
     return {
       ...state,
       results: Articles
+    };
+  case ACTION_TYPE.VIEW_ARTICLES:
+    return {
+      ...state,
+      articles: action.payload
+    };
+  case ACTION_TYPE.VIEW_ONE_ARTICLE:
+    return {
+      ...state,
+      onearticle:action.payload
     };
   default:
     return state;

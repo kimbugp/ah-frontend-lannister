@@ -8,14 +8,15 @@ body {
     box-shadow: none;
     width: 100%;
     padding: .5rem 1rem; 
-    border-radius: 50px !important;
+    border-radius: 5px !important;
 
 }
+
 .form-control:focus {
     border-color: #5cb85c;
 }
 .form-control, .btn {
-    border-radius: 50px;
+    border-radius: 5px;
     outline: none !important;
 }
 .signup-form {

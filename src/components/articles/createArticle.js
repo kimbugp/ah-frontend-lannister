@@ -6,19 +6,21 @@ import {
   publishNewArticleAction
 } from "../../actions/articleActions/articleAction";
 import PropTypes from "prop-types";
-import { myHeaders, AUTHENTICATED } from "../../utils/myHeaders";
+import { myHeaders } from "../../utils/myHeaders";
 import { toast } from "react-toastify";
 import { API_URLS } from "../../appUrls";
 import { Redirect } from "react-router-dom";
+import { CLOUD_NAME, UPLOAD_PRESET, FOLDER } from "../../config";
 
-class CreateArticle extends Component {
+export class CreateArticle extends Component {
   state = {
     allcategory: [],
     title: "",
     description: "",
     body: "",
     category: "",
-    tags: []
+    tags: [],
+    image: ""
   };
 
   componentWillMount() {
@@ -37,9 +39,13 @@ class CreateArticle extends Component {
 
   handlePublish = e => {
     e.preventDefault();
-    this.props.dispatch(
-      publishNewArticleAction(this.props.articles.article.slug)
-    );
+    if (
+      this.props.dispatch(
+        publishNewArticleAction(this.props.articles.article.slug)
+      )
+    ) {
+      return <Redirect to="/view-articles" />;
+    }
   };
 
   handleSubmit = e => {
@@ -50,10 +56,29 @@ class CreateArticle extends Component {
         description: this.state.description,
         body: this.state.body,
         tags: this.state.tags,
-        category: this.state.category
+        category: this.state.category,
+        image: this.state.image
       }
     };
     this.props.dispatch(createNewArticleAction(data));
+  };
+  handleUpload = () => {
+    const imageview = window.cloudinary.openUploadWidget(
+      {
+        cloudName: CLOUD_NAME,
+        uploadPreset: UPLOAD_PRESET,
+        folder: FOLDER
+      },
+      (error, result) => {
+        if (result.event === "success") {
+          this.setState({
+            image: result.info.secure_url
+          });
+          imageview.close();
+        }
+      }
+    );
+    imageview.open();
   };
 
   handleEditorChange = value => {
@@ -83,11 +108,14 @@ class CreateArticle extends Component {
   };
 
   render() {
-    if (AUTHENTICATED === null) {
-      return <Redirect to="/login" />;
-    }
-    const { description } = this.state;
-    const { title, body, allcategory, category } = this.state;
+    const {
+      description,
+      title,
+      body,
+      allcategory,
+      category,
+      image
+    } = this.state;
     return (
       <div>
         <NewArticle
@@ -101,6 +129,8 @@ class CreateArticle extends Component {
           allcategory={allcategory}
           handleSelectChange={this.handleSelectChange}
           handlePublish={this.handlePublish}
+          handleUpload={this.handleUpload}
+          image={image}
         />
       </div>
     );
@@ -108,14 +138,13 @@ class CreateArticle extends Component {
 }
 
 CreateArticle.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  dispatch: PropTypes.func,
   articles: PropTypes.object
 };
 
 const mapDispatchToProps = dispatch => ({ dispatch });
 const mapStateToProps = state => ({
-  articles: state.articlesReducer,
-  user: state.userReducer.user
+  articles: state.articlesReducer
 });
 
 export default connect(

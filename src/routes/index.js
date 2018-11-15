@@ -3,10 +3,12 @@ import Home from "../components";
 import LoginPage from "../components/login";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import registerUser from "../components/auth/registerUser";
-import CreateArticle from "../components/articles/createArticle";
+import Article from "../components/articles/createArticle";
 import NewPassword from "../components/auth/passwordReset/newPassword";
 import ResetRequest from "../components/auth/passwordReset/passwordResetPage";
 import ProtectedRoute from "./protectedRoutes";
+import ViewArticles from "../components/articles/viewArticles";
+import ViewArticle from "../components/articles/viewArticle";
 
 export default function AppRoutes() {
   return (
@@ -18,7 +20,9 @@ export default function AppRoutes() {
           <Route path="/register" component={registerUser} exact strict />
           <Route path="/password_reset" component={ResetRequest} exact strict />
           <Route path="/reset_confirm/:token" component={NewPassword} strict />
-          <ProtectedRoute path="/create-article" component={CreateArticle} exact strict/>
+          <ProtectedRoute path="/create-article" component={Article} exact strict/>
+          <Route path="/view-articles" component={ViewArticles} exact strict/>
+          <Route path="/view-article/:slug" component={ViewArticle} exact strict/>
         </Switch>
       </BrowserRouter>
     </div>

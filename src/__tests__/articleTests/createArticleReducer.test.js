@@ -1,14 +1,5 @@
 import articlesReducer from "../../reducers/articlesReducer/articleReducer.js";
 import ACTION_TYPES from "../../actions/actionTypes.js";
-import { Reducer } from "redux-testkit";
-
-const initialState = {
-  count: 0,
-  next: null,
-  previous: null,
-  article: {},
-  results: []
-};
 
 describe("create article reducers", () => {
   it("should return the initial state", () => {
@@ -27,11 +18,5 @@ describe("create article reducers", () => {
       type: ACTION_TYPES.PUBLISH_ARTICLE
     };
     expect(articlesReducer({}, startAction)).toEqual({});
-  });
-
-  it("should not affect state", () => {
-    Reducer(articlesReducer)
-      .expect({ type: "NOT_EXISTING" })
-      .toReturnState(initialState);
   });
 });
