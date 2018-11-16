@@ -4,3 +4,9 @@ export var myHeaders = new Headers({
   "Content-type": "application/json",
   Authorization: `token ${AUTHENTICATED}`
 });
+
+export const headers=() =>{
+  return {
+    headers: { Authorization: `token ${AUTHENTICATED}` }
+  };
+};

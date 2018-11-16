@@ -15,7 +15,7 @@ const ViewAllArticles = ({ results }) => {
         <br />
         <header className="entry-header">
           <h3 className="entry-title">
-            <a href={`/view-article/${article.slug}`} rel="bookmark">
+            <a href={`/view-article/${article.slug}`} rel="bookmark" >
               {article.title}
             </a>
           </h3>

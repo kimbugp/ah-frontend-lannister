@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {share, facebook} from "../../assets/articleAssets/svgIcons";
+import Rating from "../../components/articles/rating";
+
 const dateFormat = require("dateformat");
 
 const SideBarAction = ({ data ,readtime}) => {
@@ -34,6 +36,7 @@ const SideBarAction = ({ data ,readtime}) => {
             </a>
           </li>
         </ul>
+        <Rating/>
         <div className="sep" />
         <p className="categories">Status</p>
         <ul>

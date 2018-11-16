@@ -1,9 +1,12 @@
-import React from "react";
+import React, { Component } from "react";
 
-export default function HomeView() {
-  return (
-    <div className="app">
-      <h1>Welcome to Authors haven</h1>
-    </div>
-  );
+export default class HomeView extends Component {
+  render() {
+    return (
+      <div className="app">
+        <h1>Welcome to Authors haven</h1>
+      </div>
+    );
+  }
 }
+

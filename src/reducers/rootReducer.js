@@ -5,6 +5,7 @@ import passwordResetReducer from "./authReducers/passwordResetReducer";
 import simpleReducer from "./simpleReducer";
 import registerReducer from "./authReducers/registerReducer";
 import commentReducer from "./commentReducer/commentReducer";
+import rateReducer from "./articlesReducer/rateReducer";
 
 const reducers = combineReducers({
   simpleReducer,
@@ -12,7 +13,8 @@ const reducers = combineReducers({
   userReducer,
   passwordResetReducer,
   registerReducer,
-  commentReducer
+  commentReducer,
+  rateReducer
 });
 
 export default reducers;

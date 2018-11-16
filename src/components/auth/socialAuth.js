@@ -6,6 +6,7 @@ import { facebookAuth, googleAuth } from "../../actions/authActions/socialAuth";
 import { Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import { APP_ID, CLIENT_ID } from "../../config";
+import "../../assets/authAssets/socialAuth.css";
 
 export class SocialAuth extends Component {
   onFailure = error => {
@@ -30,15 +31,14 @@ export class SocialAuth extends Component {
           callback={this.handleFacebookResponse}
           textButton=""
           cssClass="c-facebook"
-          icon="fa fa-facebook"
+          icon="fab fa-facebook"
         />
-
         <GoogleLogin
           clientId={CLIENT_ID}
           buttonText=""
           onSuccess={this.handleGoogleResponse}
           onFailure={this.handleGoogleResponse}
-          className="fa fa-google c-google"
+          className="fab fa-google-plus-g c-google"
         />
       </div>
     );

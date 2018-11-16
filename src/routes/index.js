@@ -9,11 +9,13 @@ import ResetRequest from "../components/auth/passwordReset/passwordResetPage";
 import ProtectedRoute from "./protectedRoutes";
 import ViewArticles from "../components/articles/viewArticles";
 import ViewArticle from "../components/articles/viewArticle";
+import Rating from "../components/articles/rating";
 
+const expressHistory = "pushState" in window.history;
 export default function AppRoutes() {
   return (
     <div>
-      <BrowserRouter>
+      <BrowserRouter forceRefresh={expressHistory}>
         <Switch>
           <Route path="/" component={Home} exact strict />
           <Route path="/login" component={LoginPage} exact strict />
@@ -23,6 +25,7 @@ export default function AppRoutes() {
           <ProtectedRoute path="/create-article" component={Article} exact strict/>
           <Route path="/view-articles" component={ViewArticles} exact strict/>
           <Route path="/view-article/:slug" component={ViewArticle} exact strict/>
+          <ProtectedRoute path="/rating" component={Rating} exact strict/>
         </Switch>
       </BrowserRouter>
     </div>

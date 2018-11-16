@@ -1,7 +1,6 @@
 import React, { Component,Fragment } from "react";
 import AppRoutes from "./routes";
 import "./assets/css/App.scss";
-import "./assets/authAssets/socialAuth.css";
 import { Provider } from "react-redux";
 import store from "./store/";
 import { ToastContainer } from "react-toastify";
