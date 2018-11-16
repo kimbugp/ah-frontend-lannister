@@ -2,7 +2,7 @@ import React from "react";
 import expect from "expect";
 import { shallow} from "enzyme";
 
-import { RegisterUser } from "../components/auth/registerUser";
+import { RegisterUser } from "../../components/auth/registerUser";
 import { Provider } from "react-redux";
 import configureMockStore from "redux-mock-store";
 

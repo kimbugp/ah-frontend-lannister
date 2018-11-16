@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component,Fragment } from "react";
 import AppRoutes from "./routes";
 import "./assets/css/App.scss";
 import "./assets/authAssets/socialAuth.css";
@@ -11,10 +11,10 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <React.Fragment>
+        <Fragment>
           <ToastContainer />
           <AppRoutes />
-        </React.Fragment>
+        </Fragment>
       </Provider>
     );
   }

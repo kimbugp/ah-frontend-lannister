@@ -1,6 +1,6 @@
 import { PASSWORD_RESET} from "../actionTypes";
 import axios from "axios";
-import { BASE_URL } from "../../appUrls/urls";
+import { BASE_URL } from "../../appUrls/index";
 
 const InvokeReset = data => dispatch => {
   axios

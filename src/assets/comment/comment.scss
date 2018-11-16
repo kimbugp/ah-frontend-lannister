@@ -1,0 +1,95 @@
+$primary-colour: rgba(119,20,137,.7);
+$border: 1px solid rgba(0, 0, 0, 0.09);
+
+.commentsContainer {
+  padding-right: 50px;
+  padding-left: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 66.66% !important;
+  border-spacing: inherit;
+}
+.comment {
+  margin: 5px 0 15px;
+  border: $border;
+}
+.btn-primary {
+  color: #fff !important;
+  background-color: $primary-colour !important;
+  border-color: $primary-colour !important;
+  width: 50%;
+  margin: auto;
+}
+.btn-outline-primary {
+  color: $primary-colour !important;
+  border-color: $primary-colour !important;
+}
+.btn-outline-primary:hover {
+  color: #fff !important;
+  background-color: $primary-colour !important;
+}
+.ql-editor {
+  font-size-adjust: inherit;
+  font-size: large;
+  font-family: inherit;
+}
+.commenter p {
+  margin-bottom: 0px !important;
+}
+.comment img {
+  border-radius: 50%;
+  height: 1.2cm;
+  width: 1.2cm;
+  margin-right: 5px;
+  color: $primary-colour;
+}
+.card-header p {
+  font-size: 14px;
+  color: $primary-colour;
+  margin-bottom: 0px !important;
+  line-height: 1.4;
+}
+.card-header p:hover {
+  opacity: 0.5;
+}
+.comment-profile {
+  display: inline-block;
+}
+.comment .card-header {
+  background-color: #fff !important ;
+  border-bottom: 1px solid #fff;
+  border: #fff;
+}
+.comment .card {
+  border: none;
+}
+.commenter {
+  margin: 20px;
+  min-height: 40px;
+}
+.comments-options {
+  float: right;
+  margin-left: 10px;
+  margin-right: -5px;
+  font-size: 20px;
+  color: $primary-colour;
+}
+.comments-options:hover{
+  color:black;
+  cursor: pointer;
+}
+
+.replies{
+  padding-left: 60px;
+}
+.show>.btn-outline-primary.dropdown-toggle {
+  background-color: $primary-colour !important;
+}
+.dropdown-item:active{
+  background-color: $primary-colour !important;
+
+}
+.btn:active {
+  outline: 0;
+  box-shadow: none !important;
+}

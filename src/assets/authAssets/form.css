@@ -13,7 +13,7 @@ body {
 }
 
 .form-control:focus {
-    border-color: #5cb85c;
+    border-color: rgba(119,20,137,.7);
 }
 .form-control, .btn {
     border-radius: 5px;
@@ -32,7 +32,7 @@ body {
     padding: 40px;
 }
 .signup-form a {
-    color: #5cb85c;
+    color: rgba(119,20,137,.7);
 }    
 .signup-form h2 {
     text-align: center;
@@ -62,12 +62,11 @@ body {
 }
 .signup-btn {
     text-align: center;
-    border-color: #5cb85c;
+    border-color: rgba(119,20,137,.7);
     transition: all 0.4s;
-    border-radius: 50px !important;
 }
 .signup-btn:hover {
-    background: #5cb85c;
+    background: rgba(119,20,137,.7);
     opacity: 0.8;
 }
 .or-seperator {
@@ -122,14 +121,15 @@ body {
     color:white;
     font-family: 'Lato', sans-serif;
     font-size:17px;
-    border-color: #02B875;
+    border-color: rgba(119,20,137,.7);
     background-color: #fff;
     text-align: center;
+    padding-top: 5px;
 }
 .btn-success {
     color: #fff;
-    background-color: #28a745;
-    border-color: #28a745;
+    background-color: rgba(119,20,137,.7) !important;
+    border-color: rgba(119,20,137,.7) !important;
 }
 .btn-block {
     display: block;
@@ -146,7 +146,7 @@ body {
     }
     
 input.active:valid {
-  box-shadow: 0 0 5px 1px green;
+  box-shadow: 0 0 5px 1px rgba(119,20,137,.7);
     }
     
 input.active:invalid {

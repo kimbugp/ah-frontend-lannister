@@ -1,6 +1,6 @@
 import { EMAIL_LOGIN } from "../actionTypes";
 import axios from "axios";
-import {LOGIN_URL } from "../../appUrls/urls";
+import {LOGIN_URL } from "../../appUrls/index";
 
 const LoginAction = data => dispatch => {
   axios
