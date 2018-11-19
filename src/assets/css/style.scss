@@ -1,0 +1,85 @@
+$primary-colour: rgba(119, 20, 137, 0.7);
+
+.video-background {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  zoom: 130%;
+  z-index: -1;
+}
+.text-bkground {
+  position: fixed;
+  bottom: 0;
+  height: 100%;
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+  background-color: $primary-colour;
+}
+.logoo {
+  color: #fff;
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 36px;
+  margin-right: 200px;
+}
+.contact_us {
+  position: relative;
+  border: 0.15em solid #ff811f;
+  border-radius: 2em;
+  white-space: nowrap;
+  letter-spacing: 2px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-transform: none;
+  padding: 0.4em 2em;
+  color: #fff;
+  background: #ff811f;
+}
+.site_search {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  width: 100%;
+  text-align: right;
+  z-index: 10;
+}
+.overlay {
+  position: relative;
+  color: #fff;
+}
+.overlay h1 {
+  font-size: 70px;
+}
+.nav-home {
+  font-size: 20px;
+  margin-left: 40px;
+  font-weight: 600;
+  bottom: 90px;
+}
+.ahmission {
+  padding-right: 0px;
+  padding-top: 300px;
+  margin-left: 750px !important;
+}
+
+.nav-home .nav-link:hover{
+  background-color: black;
+  color: #fff;
+}
+.ahalign{
+  display: inline-block;
+}
+
+.slider {
+	overflow-y: hidden;
+	max-height: 500px; /* approximate max height */
+
+	transition-property: all;
+	transition-duration: .5s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
