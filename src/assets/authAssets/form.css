@@ -11,6 +11,14 @@ body {
     border-radius: 5px !important;
 
 }
+.form-control-desc {
+    font-size: 16px;
+    transition: all 0.4s;
+    box-shadow: none;
+    width: 90%;
+    padding: .5rem 1rem; 
+    border-radius: 5px !important;
+}
 
 .form-control:focus {
     border-color: rgba(119,20,137,.7);

@@ -35,7 +35,7 @@ export class CreateArticle extends Component {
   handleSelectChange = e => {
     this.setState({ category: e.target.value });
   };
-
+  
   handlePublish = e => {
     e.preventDefault();
     this.props.dispatch(

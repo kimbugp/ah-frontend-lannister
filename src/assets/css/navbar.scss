@@ -1,0 +1,16 @@
+$primary-colour: rgba(119, 20, 137, 0.7);
+.navbar img {
+  border-radius: 20% !important;
+  height: 1cm !important;
+  width: 1cm !important;
+  color: $primary-colour !important;
+}
+.navbar {
+//   margin-right: 5rem;
+  width: 100%;
+}
+.navbar-brand {
+  font-size: 15px !important;
+  font-weight: bold;
+  padding-top: 0cm !important;
+}

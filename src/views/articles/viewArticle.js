@@ -13,31 +13,41 @@ const ViewOneArticle = ({ article }) => {
       <NavBar />
       <div className="container">
         <div className="row">
-          <SideBarAction data={article} readtime={roundUp}/>
-          <div className="col-md-8 col-md-offset-2 col-xs-12">
-            <div className="mainheading">
-              <h1 className="posttitle">{article.title}</h1>
-              <h3>{article.description}</h3>
-              <h3>
-                <img
-                  className="featured-image img-fluid"
-                  id="article_image"
-                  src={article.image}
-                  alt=""
-                />
-              </h3>
-            </div>
+          <SideBarAction data={article} readtime={roundUp} />
+          <div className="col-md-9 col-xs-12 ">
+            <center>
+              <div className="center">
+                <h1 className="posttitle">{article.title} </h1>
+                <h4>
+                  {article.description} {"  "}
+                  <br />
+                  <a className="categories" href="/">
+                    {article.category_title}
+                  </a>
+                  {"    "}
+                  <a className="readtime" href="#comments">
+                    {dateFormat(roundUp, "M")} min read
+                  </a>
+                  {"    "}
+                  <span className="readtime"> By {article.author} </span>
+                  <span className="readtime">
+                    On {dateFormat(article.created_at, "d mmm")}
+                  </span>
+                </h4>
+                <h3>
+                  <img
+                    className="featured-image img-fluid"
+                    id="article_image"
+                    src={article.image}
+                    alt=""
+                  />
+                </h3>
+              </div>
+            </center>
             <div className="article-post">
               <div dangerouslySetInnerHTML={{ __html: article.body }} />
             </div>
             <div className="entry-meta">
-              <h5 className="entry-author">
-                <span>Created By {article.author} </span>
-                <time className="entry-date">
-                  on {dateFormat(article.created_at, "d/mmm/yyyy")}
-                </time>
-              </h5>
-
               <div className="after-post-tags">
                 <ul className="tags" />
               </div>
@@ -53,4 +63,3 @@ ViewOneArticle.propTypes = {
 };
 
 export default ViewOneArticle;
-

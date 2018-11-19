@@ -1,12 +1,11 @@
 import React from "react";
+import "../../assets/css/navbar.scss";
 import {
   Collapse,
   Navbar,
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
-  NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
@@ -31,41 +30,101 @@ class NavBar extends React.Component {
     return (
       <div>
         <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">AUTHORS HAVEN</NavbarBrand>
+          <NavbarBrand href="/view-articles">AUTHORS HAVEN</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="/">Finance</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/">
-                  Home
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/">
-                  Fashion
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/">
-                  Health
-                </NavLink>
-              </NavItem>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Actions
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem href="/create-article">New Article</DropdownItem>
-                  <DropdownItem href="/view-articles">View Articles</DropdownItem>
-                  <DropdownItem href="/">My stories</DropdownItem>
-                  <DropdownItem href="/">Home</DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>Reset</DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
+              <ul className="navbar-nav">
+                <li className="nav-item active">
+                  <a className="nav-link" href="/view-articles">
+                    Finance
+                  </a>
+                </li>
+                <li className="nav-item active">
+                  <a className="nav-link" href="/view-articles">
+                    Lifestyle
+                  </a>
+                </li>
+                <li className="nav-item active">
+                  <a className="nav-link" href="/view-articles">
+                    Travel
+                  </a>
+                </li>
+                <li className="nav-item active">
+                  <a className="nav-link" href="/view-articles">
+                    Biology
+                  </a>
+                </li>
+                <li className="nav-item active">
+                  <a className="nav-link" href="/view-articles">
+                    Health
+                  </a>
+                </li>
+                <li className="nav-item active ">
+                  <a className="nav-link" href="/view-articles">
+                    Sports
+                  </a>
+                </li>
+                <li className="nav-item active">
+                  <a className="nav-link" href="/view-articles">
+                    Movies
+                  </a>
+                </li>
+                <li className="nav-item active">
+                  <a className="nav-link" href="/view-articles">
+                    Music
+                  </a>
+                </li>
+                <li className="nav-item active">
+                  <a className="nav-link" href="/view-articles">
+                    Science
+                  </a>
+                </li>
+                <li className="nav-item active">
+                  <a className="nav-link" href="/view-articles">
+                    Tech
+                  </a>
+                </li>
+                <li className="nav-item active">
+                  <a className="nav-link" href="/view-articles">
+                    Education
+                  </a>
+                </li>
+                <li className="nav-item active">
+                  <a className="nav-link" href="/view-articles">
+                    More
+                  </a>
+                </li>
+                <li className="">
+                  <UncontrolledDropdown nav inNavbar>
+                    <DropdownToggle nav caret className="navbar">
+                      <img
+                        id="profile"
+                        src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1"
+                        alt="user"
+                      />
+                    </DropdownToggle>
+                    <DropdownMenu>
+                      <DropdownItem href="/profile/admin">Profile</DropdownItem>
+                      <DropdownItem href="/create-article">
+                        Create Article
+                      </DropdownItem>
+                      <DropdownItem href="/view-articles">
+                        View Articles
+                      </DropdownItem>
+                      <DropdownItem href="/">My stories</DropdownItem>
+                      <DropdownItem href="/">BookMarks</DropdownItem>
+                      <DropdownItem href="/">Stats</DropdownItem>
+                      <DropdownItem divider />
+                      <DropdownItem>LogOut</DropdownItem>
+                    </DropdownMenu>
+                  </UncontrolledDropdown>
+                </li>
+                <li className="nav-item active">
+                  <a className="nav-link" href="/view-articles">
+                  </a>
+                </li>
+              </ul>
             </Nav>
           </Collapse>
         </Navbar>

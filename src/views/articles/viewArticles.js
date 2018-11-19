@@ -2,7 +2,6 @@ import React from "react";
 import NavBar from "../../components/navigation/navBar";
 import "../../assets/articleAssets/demo2.scss";
 import PropTypes from "prop-types";
-import { roundofftime } from "./roundOffTime";
 
 const dateFormat = require("dateformat");
 const ViewAllArticles = ({ results }) => {
@@ -15,30 +14,23 @@ const ViewAllArticles = ({ results }) => {
         <br />
         <header className="entry-header">
           <h3 className="entry-title">
-            <a href={`/view-article/${article.slug}`} rel="bookmark" >
+            <a href={`/view-article/${article.slug}`} rel="bookmark">
               {article.title}
-            </a>
+            </a>{" "}
           </h3>
         </header>
         <div className="entry-meta">
           <h5 className="entry-description">
             <span>{article.description}</span>
+            <br />
           </h5>
-          <div>
-            <a className="categories" href="/">
-              {article.category_title}
-            </a>
-          </div>
-          <h5 className="entry-author">
-            <a href="/" title="" rel="">
-              {article.author}
-            </a>
-          </h5>
+          <a className="categories" href="/">
+            {article.category_title}
+          </a><br/>
           <time className="entry-date">
-            {dateFormat(article.created_at, "d/mmm/yyyy")}
+            {dateFormat(article.created_at, "mmmm d, yyyy")}
           </time>
           <br />
-          <time>{dateFormat(roundofftime(article), "M")} min read</time>
         </div>
         <br />
       </div>
@@ -48,9 +40,7 @@ const ViewAllArticles = ({ results }) => {
   return (
     <div>
       <NavBar />
-      <div className="pic-container">
-        {showArticles}
-      </div>
+      <div className="pic-container">{showArticles}</div>
     </div>
   );
 };

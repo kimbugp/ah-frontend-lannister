@@ -6,11 +6,13 @@ import { Button, Popover, PopoverHeader, PopoverBody } from "reactstrap";
 import PropTypes from "prop-types";
 import { toast } from "react-toastify";
 import "../../assets/articleAssets/rating.scss";
+import { star } from "../../assets/articleAssets/svgIcons";
 
 let rate;
 export class Rating extends Component {
+  
   state = {
-    popoverOpen: false,
+    popoverOpen: false
   };
   handleRating = newRating => {
     rate = newRating;
@@ -18,16 +20,15 @@ export class Rating extends Component {
   toggle = () => {
     this.setState({ popoverOpen: true });
   };
- 
+
   handleSubmit = () => {
-    if (this.props.error.length>0){
+    if (this.props.error.length > 0) {
       toast.error(this.props.error, {
         autoClose: 3500,
         hideProgressBar: true
       });
       this.setState({ popoverOpen: false });
-    }
-    else if (rate == null) {
+    } else if (rate == null) {
       toast.warn("you have not rated", {
         autoClose: 3500,
         hideProgressBar: true
@@ -38,7 +39,7 @@ export class Rating extends Component {
         autoClose: 3500,
         hideProgressBar: true
       });
-      this.props.rateArticle(rating,this.props.slug);
+      this.props.rateArticle(rating, this.props.slug);
       this.setState({ popoverOpen: false });
     }
   };
@@ -46,16 +47,28 @@ export class Rating extends Component {
   handleRenderingStars = () => {
     return (
       <div className="rate">
-        <p id="Popover1" className="rate-text" onClick={this.toggle}>
-          rate article
-        </p>
+        <a href="#comments">
+          {this.props.rating}
+        </a>{" "}
+        <svg
+          id="Popover1"
+          style={{}}
+          onClick={this.toggle}
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path fill="none" d="M24 24H0V0h24v24z" />
+          <path d={star} />
+        </svg>
         <Popover
           placement="right"
           isOpen={this.state.popoverOpen}
           target="Popover1"
           toggle={this.toggle}
         >
-          <PopoverHeader >rate</PopoverHeader>
+          <PopoverHeader>rate</PopoverHeader>
           <PopoverBody>
             <ReactStars
               count={5}
@@ -75,22 +88,21 @@ export class Rating extends Component {
   };
   render() {
     return (
-      <div>
-        {this.props.hasRated ? null : this.handleRenderingStars()}
-      </div>
+      <div>{this.props.hasRated ? null : this.handleRenderingStars()}</div>
     );
   }
 }
 Rating.propTypes = {
   hasRated: PropTypes.bool,
   rateArticle: PropTypes.func,
-  slug:PropTypes.string,
-  error:PropTypes.string
+  slug: PropTypes.string,
+  error: PropTypes.string,
+  rating:PropTypes.string
 };
 const mapStateToProps = state => ({
   hasRated: state.rateReducer.hasRated,
   error: state.rateReducer.error,
-  slug:state.articlesReducer.onearticle.slug
+  slug: state.articlesReducer.onearticle.slug
 });
 export default connect(
   mapStateToProps,

@@ -2,11 +2,10 @@ $primary-colour: rgba(119,20,137,.7);
 $border: 1px solid rgba(0, 0, 0, 0.09);
 
 .commentsContainer {
-  padding-right: 50px;
   padding-left: 20px;
   margin-right: auto;
   margin-left: auto;
-  max-width: 66.66% !important;
+  max-width: 49% !important;
   border-spacing: inherit;
 }
 .comment {

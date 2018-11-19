@@ -14,17 +14,18 @@ it("article component returns a div", () => {
   component;
 });
 
-it("article component returns a div", () => {
-  const article = [
+it("article component returns one article data", () => {
+  const dateFormat = require("dateformat");
+  const article = 
     {
-      read_time: ""
-    }
-  ];
+      read_time:"00:00:00",
+      dateFormat
+    };
   let component = shallow(<ViewAnArticle article={article} />);
   component;
 });
 
-it("article component returns a div", () => {
+it("view article component returns a div", () => {
   const article = {
     read_time: ""
   };
@@ -53,4 +54,3 @@ it("viewing article", () => {
   let component = shallow(<ViewArticle {...props} />);
   component;
 });
-
