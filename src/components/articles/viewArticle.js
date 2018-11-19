@@ -5,6 +5,7 @@ import { fetchOneArticle } from "../../actions/articleActions/articleAction";
 import ViewOneArticle from "../../views/articles/viewArticle";
 import Comments from "../comments/commentsComponent";
 import getComments from "../../actions/commentActions/commentActions";
+import { checkStatus } from "../../actions/articleActions/likeDislikeAction";
 
 export class ViewArticle extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ export class ViewArticle extends Component {
     const slug = this.props.match.params.slug;
     this.props.dispatch(fetchOneArticle(slug));
     this.props.dispatch(getComments(slug));
-
+    checkStatus(slug);
   }
 
   render() {

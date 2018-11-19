@@ -8,9 +8,14 @@ import { toast } from "react-toastify";
 import "../../assets/articleAssets/rating.scss";
 import { star } from "../../assets/articleAssets/svgIcons";
 
-let rate;
+let rate = null;
+const toastMsg = (msgType, msg) => {
+  msgType(msg, {
+    autoClose: 3500,
+    hideProgressBar: true
+  });
+};
 export class Rating extends Component {
-  
   state = {
     popoverOpen: false
   };
@@ -20,26 +25,22 @@ export class Rating extends Component {
   toggle = () => {
     this.setState({ popoverOpen: true });
   };
+handleCancel=()=>{
+  this.setState({ popoverOpen: false });
+}
 
   handleSubmit = () => {
     if (this.props.error.length > 0) {
-      toast.error(this.props.error, {
-        autoClose: 3500,
-        hideProgressBar: true
-      });
+      toastMsg(toast.error, this.props.error);
       this.setState({ popoverOpen: false });
-    } else if (rate == null) {
-      toast.warn("you have not rated", {
-        autoClose: 3500,
-        hideProgressBar: true
-      });
+    } else if (rate === null) {
+      toastMsg(toast.warn, "you have not rated");
+      this.setState({ popoverOpen: false });
     } else {
       const rating = { rate: { rating: rate } };
-      toast.success("your rate has been added", {
-        autoClose: 3500,
-        hideProgressBar: true
-      });
+      toastMsg(toast.success, "your rate has been added");
       this.props.rateArticle(rating, this.props.slug);
+
       this.setState({ popoverOpen: false });
     }
   };
@@ -47,28 +48,28 @@ export class Rating extends Component {
   handleRenderingStars = () => {
     return (
       <div className="rate">
-        <a href="#comments">
-          {this.props.rating}
-        </a>{" "}
-        <svg
-          id="Popover1"
-          style={{}}
-          onClick={this.toggle}
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-        >
-          <path fill="none" d="M24 24H0V0h24v24z" />
-          <path d={star} />
-        </svg>
+        {this.props.rating}
+        <div data-md-tooltip="rate this article" >
+          <svg
+            id="Popover1"
+            style={{}}
+            onClick={this.toggle}
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path fill="none" d="M24 24H0V0h24v24z" />
+            <path d={star} />
+          </svg>
+        </div>
         <Popover
           placement="right"
           isOpen={this.state.popoverOpen}
           target="Popover1"
           toggle={this.toggle}
         >
-          <PopoverHeader>rate</PopoverHeader>
+          <PopoverHeader>Rate</PopoverHeader>
           <PopoverBody>
             <ReactStars
               count={5}
@@ -80,6 +81,9 @@ export class Rating extends Component {
             />
             <Button className="submit-color" onClick={this.handleSubmit}>
               submit
+            </Button> {""}
+            <Button className="submit-color" onClick={this.handleCancel} >
+              Cancel
             </Button>
           </PopoverBody>
         </Popover>
@@ -97,7 +101,7 @@ Rating.propTypes = {
   rateArticle: PropTypes.func,
   slug: PropTypes.string,
   error: PropTypes.string,
-  rating:PropTypes.string
+  rating: PropTypes.string
 };
 const mapStateToProps = state => ({
   hasRated: state.rateReducer.hasRated,

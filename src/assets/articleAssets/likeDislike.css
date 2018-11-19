@@ -1,0 +1,16 @@
+.fas{
+    cursor: pointer;
+    color:black;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+.fas:hover{
+    color:rgba(119,20,137,.7)
+}
+#false{
+    margin-left: 10px;
+}
+.clicked{
+    color:rgba(119,20,137,.7)
+}

@@ -76,6 +76,8 @@ export const retrieveAllArticles = () => dispatch => {
         payload: res.data.articles.results
       };
       dispatch(fetchall);
+      localStorage.setItem("hasLiked", false);
+      localStorage.setItem("hasDisLiked", false);
     })
     .catch(error => {
       toast.error(error, { autoClose: 3500, hideProgressBar: true });
@@ -92,6 +94,7 @@ export const fetchOneArticle = slug => dispatch => {
         type:ACTION_TYPE.VIEW_ONE_ARTICLE,
         payload:res.data.article
       });
+     
     })
     .catch(error =>{
       toast.error(error, { autoClose: 3500, hideProgressBar: true });

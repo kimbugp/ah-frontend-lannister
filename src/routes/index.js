@@ -13,11 +13,10 @@ import Rating from "../components/articles/rating";
 import Profile from "../components/profile/profile";
 import EditProfile from "../components/profile/editProfile";
 
-const expressHistory = "pushState" in window.history;
 export default function AppRoutes() {
   return (
     <div>
-      <BrowserRouter forceRefresh={expressHistory}>
+      <BrowserRouter >
         <Switch>
           <Route path="/" component={Home} exact strict />
           <Route path="/login" component={LoginPage} exact strict />

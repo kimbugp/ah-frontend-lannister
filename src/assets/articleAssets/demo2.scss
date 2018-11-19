@@ -452,7 +452,7 @@ a:hover {
     content: attr(data-md-tooltip);
     position: absolute;
     top: -30px;
-    left: 50%;
+    right: -70px;
     padding: 8px;
     transform: translateX(-50%) scale(0);
     transition: transform 0.3s ease-in-out;
