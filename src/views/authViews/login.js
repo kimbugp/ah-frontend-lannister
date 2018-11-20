@@ -25,10 +25,10 @@ const LoginView = props => (
       >
         Log In
       </Button>
-      <div id="password-reset" className="center-text">
-        <Link to="/register">New user ? Sign Up Here </Link>
+      <div id="password-reset" className="d-inline">
+        <Link to="/register">Create Account</Link>
       </div>
-      <div className="center-text">
+      <div className="d-inline">
         <Link to="/password_reset">Forgot Password ?</Link>
       </div>
       <div className="center-text">

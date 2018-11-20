@@ -26,7 +26,9 @@ const articlesReducer = (state = initialState, action) => {
   case ACTION_TYPE.VIEW_ARTICLES:
     return {
       ...state,
-      articles: action.payload
+      articles: state.articles.concat(action.payload.results),
+      next: action.payload.next,
+      previous:action.payload.previous
     };
   case ACTION_TYPE.VIEW_ONE_ARTICLE:
     return {
