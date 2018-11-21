@@ -52,7 +52,8 @@ test("check publishNewArticleAction", () => {
 });
 
 it("should render my article component", () => {
-  shallow(<CreateArticle />);
+  const component = shallow(<CreateArticle />);
+  expect(component).toBeTruthy();
 });
 
 it("should render my article component", () => {
@@ -60,7 +61,8 @@ it("should render my article component", () => {
   let props = {
     allcategory: { map }
   };
-  shallow(<NewArticle {...props} />);
+  const wrap = shallow(<NewArticle {...props} />);
+  expect(wrap.find("option").text()).toEqual("Select Category");
 });
 
 it("create an article", () => {
@@ -74,8 +76,6 @@ it("create an article", () => {
   };
   let component = shallow(<CreateArticle {...props} />);
   component.instance().handleSubmit({ preventDefault });
-
-  component;
 });
 
 it("connect create component to add store", () => {
@@ -90,5 +90,6 @@ it("connect create component to add store", () => {
 
 it("test navbar component", () => {
   let component = shallow(<NavBar />);
-  component;
+  var node = component.find("Navbar");
+  expect(node.length).toEqual(1);
 });

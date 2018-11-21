@@ -16,6 +16,7 @@ const toastMsg = (msgType, msg) => {
   });
 };
 export class Rating extends Component {
+  
   state = {
     popoverOpen: false
   };

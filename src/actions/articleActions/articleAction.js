@@ -1,6 +1,6 @@
 import { API_URLS, BASE_URL } from "../../appUrls";
 import ACTION_TYPE from "../actionTypes";
-import { myHeaders } from "../../utils/myHeaders";
+import { headers, myHeaders } from "../../utils/myHeaders";
 import { toast } from "react-toastify";
 import axios from "axios";
 
@@ -27,7 +27,7 @@ export const createNewArticleAction = article => dispatch => {
     .then(data => {
       dispatch({
         type: ACTION_TYPE.NEW_ARTICLE,
-        payload: data.article,
+        payload: data.article
       });
     })
     .catch(error => {
@@ -91,12 +91,29 @@ export const fetchOneArticle = slug => dispatch => {
     })
     .then(res => {
       dispatch({
-        type:ACTION_TYPE.VIEW_ONE_ARTICLE,
-        payload:res.data.article
+        type: ACTION_TYPE.VIEW_ONE_ARTICLE,
+        payload: res.data.article
       });
      
     })
-    .catch(error =>{
+    .catch(error => {
+      toast.error(error, { autoClose: 3500, hideProgressBar: true });
+    });
+};
+
+export const shareArticle = (email, slug) => async dispatch => {
+  return await axios
+    .post(BASE_URL + `/api/articles/${slug}/share/`, email, headers())
+    .then(res => {
+      toast.success(`${res.data.share.message} with ${res.data.share.email}`, {
+        autoClose: 3500,
+        hideProgressBar: true
+      });
+      dispatch({
+        type: ACTION_TYPE.SHARE_ARTICLE
+      });
+    })
+    .catch(error => {
       toast.error(error, { autoClose: 3500, hideProgressBar: true });
     });
 };

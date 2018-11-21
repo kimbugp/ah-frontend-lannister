@@ -6,14 +6,19 @@ import PropTypes from "prop-types";
 import { roundofftime } from "./roundOffTime";
 
 const dateFormat = require("dateformat");
-const ViewOneArticle = ({ article }) => {
+const ViewOneArticle = ({ article, emailShare, handleEmail }) => {
   const roundUp = roundofftime(article);
   return (
     <div>
       <NavBar />
       <div className="container">
         <div className="row">
-          <SideBarAction data={article} readtime={roundUp} />
+          <SideBarAction
+            data={article}
+            readtime={roundUp}
+            emailShare={emailShare}
+            handleEmail = {handleEmail}
+          />
           <div className="col-md-9 col-xs-12 ">
             <center>
               <div className="center">
@@ -59,7 +64,9 @@ const ViewOneArticle = ({ article }) => {
   );
 };
 ViewOneArticle.propTypes = {
-  article: PropTypes.object
+  article: PropTypes.object,
+  emailShare: PropTypes.func,
+  handleEmail : PropTypes.func
 };
 
 export default ViewOneArticle;
