@@ -16,7 +16,8 @@ describe("All components", () => {
       results: { map },
       thread: { length: 1 },
       length: 1,
-      comment: { length: 1 }
+      comment: { length: 1 },
+      like:{length:1}
     }
   };
 
@@ -34,7 +35,8 @@ describe("All components", () => {
       comments: {
         results: { length: 1, comment: { length: 1 } },
         thread: { length: 1 },
-        comment: { length: 1 }
+        comment: { length: 1 },
+        like:{length:1}
       }
     });
   });

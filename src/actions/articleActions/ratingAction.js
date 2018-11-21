@@ -2,13 +2,14 @@ import axios from "axios";
 import ACTION_TYPE from "../actionTypes";
 import { BASE_URL } from "../../appUrls";
 import { headers } from "../../utils/myHeaders";
+import { toast } from "react-toastify";
 
-export const dispatchError = payload=>({
-  type:ACTION_TYPE.ERROR,
+export const dispatchError = payload => ({
+  type: ACTION_TYPE.ERROR,
   payload
 });
-export const dispatchHasRated = payload=>({
-  type:ACTION_TYPE.RATE_ARTICLE,
+export const dispatchHasRated = payload => ({
+  type: ACTION_TYPE.RATE_ARTICLE,
   payload
 });
 export const rateArticle = (data, slug) => async dispatch => {
@@ -16,7 +17,10 @@ export const rateArticle = (data, slug) => async dispatch => {
     .post(BASE_URL + `/api/articles/${slug}/rating/`, data, headers())
     .then(res => {
       if (res.data.rates.msg) {
-        dispatch(dispatchError(res.data.rates.msg ));
+        toast.error(res.data.rates.msg, {
+          autoClose: 3500,
+          hideProgressBar: true
+        });
       }
       if (res.data.rate.article === slug) {
         dispatch(dispatchHasRated(true));

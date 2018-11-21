@@ -1,7 +1,7 @@
 import React, { Fragment, Component } from "react";
 import CommentCard from "../../views/commentsViews/commentsCard";
 import getComments, {
-  deleteComment
+  deleteComment,likeComment,unlikeComment
 } from "../../actions/commentActions/commentActions";
 import { connect } from "react-redux";
 import { Authenticate } from "../../routes/protectedRoutes";
@@ -22,10 +22,19 @@ export class CommentsView extends Component {
     if (
       comments.results.length > prev.results.length ||
       prev.thread.length !== comments.thread.length ||
-      prev.comment.length!== comments.comment.length
+      prev.comment.length!== comments.comment.length||
+      prev.like.length!==comments.like.length
     ) {
       this.props.getComments(nextProps.slug);
     }
+  }
+  handleLike=(event)=>{
+    const id = event.target.id;
+    this.props.likeComment(this.props.slug,id);
+  }
+  handleUnlike=(event)=>{
+    const id = event.target.id;
+    this.props.unlikeComment(this.props.slug,id);
   }
 
   handleClick = event => {
@@ -45,6 +54,8 @@ export class CommentsView extends Component {
             key={item.id}
             onclick={this.handleClick}
             dropdown={true}
+            like={this.handleLike}
+            unlike={this.handleUnlike}
           />
         );
       } else {
@@ -54,6 +65,7 @@ export class CommentsView extends Component {
             key={item.id}
             onclick={this.handleClick}
             button={false}
+            display={true}
           />
         );
       }
@@ -67,5 +79,5 @@ const mapStateToProps = state => ({
 });
 export default connect(
   mapStateToProps,
-  { getComments, deleteComment }
+  { getComments, deleteComment,likeComment,unlikeComment }
 )(CommentsView);

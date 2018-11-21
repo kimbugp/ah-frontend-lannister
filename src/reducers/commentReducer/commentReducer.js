@@ -1,12 +1,13 @@
-import {COMMENTS} from "../../actions/actionTypes";
+import { COMMENTS } from "../../actions/actionTypes";
 
 const initialState = {
   count: 0,
   next: null,
   previous: null,
   results: [],
-  thread:[],
-  comment:[]
+  thread: [],
+  comment: [],
+  like:[]
 };
 
 const commentReducer = (state = initialState, action) => {
@@ -15,9 +16,8 @@ const commentReducer = (state = initialState, action) => {
     return {
       ...state,
       results: action.payload.results,
-      count:action.payload.count,
-      next:action.payload.next,
-
+      count: action.payload.count,
+      next: action.payload.next
     };
   case COMMENTS.POST_COMMENT:
     return {
@@ -33,6 +33,11 @@ const commentReducer = (state = initialState, action) => {
     return {
       ...state,
       comment: state.comment.concat(action.payload)
+    };
+  case COMMENTS.LIKE_COMMENT:
+    return {
+      ...state,
+      like: state.like.concat(action.payload)
     };
   default:
     return state;

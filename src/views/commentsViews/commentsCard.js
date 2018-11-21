@@ -21,6 +21,12 @@ const CommentCard = props => (
     <Button outline color="primary" id={`reply${props.id}`}>
       Replies
     </Button>
+    <div className="like-comment">
+      <Button color="link" id={props.id} onClick={props.like} >Likes {props.likes_count}</Button>
+      <i className="far fa-thumbs-up like-icon"id={props.id} onClick={props.like} hidden={props.display} ></i>
+      {" "}
+      <i className="far fa-thumbs-down like-icon"id={props.id} onClick={props.unlike} hidden={props.display} ></i>
+    </div>
     <UncontrolledCollapse toggler={`#reply${props.id}`} className="replies">
       <InsertComment
         value={"Reply"}
@@ -31,6 +37,7 @@ const CommentCard = props => (
         <ViewCard {...item} key={item.id} dropdown={true} />
       ))}
     </UncontrolledCollapse>
+     
   </div>
 );
 export const Selected = props => {
