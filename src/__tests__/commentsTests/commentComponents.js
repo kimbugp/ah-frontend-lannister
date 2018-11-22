@@ -2,7 +2,7 @@ import React from "react";
 import { CommentsView } from "../../components/comments/viewComment";
 import { mount, shallow } from "enzyme";
 import { NewComment } from "../../components/comments/newComment";
-import Commments from "../../components/comments/commentsComponent";
+import Comments from "../../components/comments/commentsComponent";
 
 describe("All components", () => {
   let component;
@@ -24,10 +24,11 @@ describe("All components", () => {
     component = mount(<CommentsView {...props} />);
   });
   it("all the comments render", () => {
-    component;
+    expect(component.length).toEqual(1);
   });
   it("deletes comments on click", () => {
     component.instance().handleClick({ target: { id: 2 } });
+    expect(deleteComment).toBeCalled();
   });
   it("check compnent rerenders on change", () => {
     component.instance().componentWillUpdate({
@@ -37,6 +38,11 @@ describe("All components", () => {
         comment: { length: 1 }
       }
     });
+    expect(component.prop(props.comments)).toEqual();
+  });
+  it("component receives props ", () => {
+    component.setProps({ comments: { results: { map }, thread: "" } });
+    expect(component.exists()).toEqual(true);
   });
 });
 describe("New comment", () => {
@@ -50,7 +56,7 @@ describe("New comment", () => {
     component = shallow(<NewComment {...props} />);
   });
   it("all the comments render", () => {
-    component;
+    expect(component.exists()).toEqual(true);
   });
   it("is saved", () => {
     let preventDefault = jest.fn();
@@ -59,16 +65,19 @@ describe("New comment", () => {
   it("adds a thread", () => {
     let preventDefault = jest.fn();
     component.instance().saveComment({ preventDefault, target: { id: 5 } });
+    expect(component.exists()).toBeDefined();
   });
   it("input is saved", () => {
     component.instance().getInput();
+    expect(component.length).toEqual(1);
   });
   it("box increases length on click ", () => {
     component.instance().onClick();
+    expect(component.exists()).toEqual(true);
   });
 });
 
 it("box increases length on click ", () => {
-  let component = shallow(<Commments />);
-  component;
+  let component = shallow(<Comments />);
+  expect(component.exists()).toEqual(true);
 });

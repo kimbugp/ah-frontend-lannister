@@ -15,6 +15,7 @@
     "moment": "^2.22.2",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
+    "react-css-modules": "^4.7.7",
     "react-dom": "^16.6.0",
     "react-draft-wysiwyg": "^1.12.13",
     "react-facebook-login": "^4.1.1",
