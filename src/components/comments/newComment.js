@@ -5,6 +5,7 @@ import {
   createThread
 } from "../../actions/commentActions/commentActions";
 import { connect } from "react-redux";
+import { startOfText, endOfText } from "../articles/viewArticle";
 
 export class NewComment extends React.Component {
   state = {};
@@ -20,13 +21,18 @@ export class NewComment extends React.Component {
     this.setState({ display: "none", height: "1cm", comment: "" });
     if (event.target.id) {
       let data = {
-        body: { comment: { body: this.state.comment } },
+        body: {
+          comment: {
+            body: this.state.comment
+          }
+        },
         id: event.target.id
       };
       this.props.createThread(this.props.slug, data);
     } else {
       this.props.createComment(this.props.slug, {
-        comment: { body: this.state.comment }
+        comment: { body:this.state.comment ,start_position: startOfText,
+          end_position: endOfText }
       });
     }
   };
@@ -34,6 +40,7 @@ export class NewComment extends React.Component {
     this.setState({ height: "4cm", display: "block" });
   };
   render() {
+    
     const attrib = {
       comment: this.state.comment,
       handleChange: this.getInput,

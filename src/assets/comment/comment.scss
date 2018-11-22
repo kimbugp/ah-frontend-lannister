@@ -1,4 +1,4 @@
-$primary-colour: rgba(119,20,137,.7);
+$primary-colour: rgba(119, 20, 137, 0.7);
 $border: 1px solid rgba(0, 0, 0, 0.09);
 
 .commentsContainer {
@@ -73,22 +73,28 @@ $border: 1px solid rgba(0, 0, 0, 0.09);
   font-size: 20px;
   color: $primary-colour;
 }
-.comments-options:hover{
-  color:black;
+.comments-options:hover {
+  color: black;
   cursor: pointer;
 }
 
-.replies{
+.replies {
   padding-left: 60px;
 }
-.show>.btn-outline-primary.dropdown-toggle {
+.show > .btn-outline-primary.dropdown-toggle {
   background-color: $primary-colour !important;
 }
-.dropdown-item:active{
+.dropdown-item:active {
   background-color: $primary-colour !important;
-
 }
 .btn:active {
   outline: 0;
   box-shadow: none !important;
 }
+.comment-box {
+ width:500px
+}
+.selected-box{
+  color: grey;
+ }
+ 

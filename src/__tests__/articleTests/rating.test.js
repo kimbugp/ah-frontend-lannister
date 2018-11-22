@@ -4,6 +4,7 @@ import { Rating } from "../../components/articles/rating";
 
 describe("rating  component", () => {
   const props = {
+    fetchOneArticle:jest.fn,
     hasRated: false,
     rateArticle: jest.fn,
     error:"",
@@ -40,6 +41,7 @@ describe("rating  component", () => {
 });
 it("sets state when clicked", () => {
   const props = {
+    fetchOneArticle:jest.fn,
     hasRated: false,
     rateArticle: jest.fn,
     error:{length:1},
@@ -51,6 +53,7 @@ it("sets state when clicked", () => {
 });
 it("set", () => {
   const props = {
+    fetchOneArticle:jest.fn,
     hasRated: false,
     rateArticle: jest.fn,
     error:{length:0},

@@ -1,4 +1,4 @@
-import React,{Fragment} from "react";
+import React, { Fragment } from "react";
 import {
   Card,
   CardText,
@@ -22,13 +22,26 @@ const CommentCard = props => (
       Replies
     </Button>
     <UncontrolledCollapse toggler={`#reply${props.id}`} className="replies">
-      <InsertComment value={"Reply"} holder={"Enter your reply here..."} id={props.id}/>
+      <InsertComment
+        value={"Reply"}
+        holder={"Enter your reply here..."}
+        id={props.id}
+      />
       {props.replies.map(item => (
-        <ViewCard {...item} key={item.id} dropdown={true}/>
+        <ViewCard {...item} key={item.id} dropdown={true} />
       ))}
     </UncontrolledCollapse>
   </div>
 );
+export const Selected = props => {
+  if (props) {
+    return (
+      <div className="selected-box">
+        <CardText dangerouslySetInnerHTML={{ __html: props.article_section }} /><br/>
+      </div>
+    );
+  }
+};
 export const ViewCard = props => (
   <Fragment>
     <Card>
@@ -39,12 +52,20 @@ export const ViewCard = props => (
             <p>{props.author.username}</p>
             <Moment fromNow>{props.created_at}</Moment>
           </div>
-          <UncontrolledDropdown color="primary" className="comments-options" hidden={props.dropdown}>
+          <UncontrolledDropdown
+            color="primary"
+            className="comments-options"
+            hidden={props.dropdown}
+          >
             <DropdownToggle outline color="primary" id={props.id} caret>
               ...
             </DropdownToggle>
             <DropdownMenu>
-              <DropdownItem onClick={props.onclick} id={props.id} disabled={props.button}>
+              <DropdownItem
+                onClick={props.onclick}
+                id={props.id}
+                disabled={props.button}
+              >
                 Delete
               </DropdownItem>
             </DropdownMenu>
@@ -52,6 +73,7 @@ export const ViewCard = props => (
         </div>
       </CardHeader>
       <div className="commenter">
+        <Selected {...props.section} />
         <CardText dangerouslySetInnerHTML={{ __html: props.body }} />
       </div>
     </Card>
@@ -72,7 +94,7 @@ ViewCard.propTypes = {
   onclick: PropTypes.func,
   id: PropTypes.number,
   replies: PropTypes.array,
-  button:PropTypes.bool,
-  dropdown:PropTypes.bool
+  button: PropTypes.bool,
+  dropdown: PropTypes.bool
 };
 export default CommentCard;

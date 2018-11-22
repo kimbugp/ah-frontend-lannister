@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import { roundofftime } from "./roundOffTime";
 
 const dateFormat = require("dateformat");
-const ViewOneArticle = ({ article, emailShare, handleEmail }) => {
+const ViewOneArticle = ({ article, emailShare, handleEmail, selected}) => {
   const roundUp = roundofftime(article);
   return (
     <div>
@@ -50,7 +50,9 @@ const ViewOneArticle = ({ article, emailShare, handleEmail }) => {
               </div>
             </center>
             <div className="article-post">
-              <div dangerouslySetInnerHTML={{ __html: article.body }} />
+              <div dangerouslySetInnerHTML={{ __html: article.body }} onClick={selected} >
+             
+              </div>
             </div>
             <div className="entry-meta">
               <div className="after-post-tags">
@@ -66,7 +68,8 @@ const ViewOneArticle = ({ article, emailShare, handleEmail }) => {
 ViewOneArticle.propTypes = {
   article: PropTypes.object,
   emailShare: PropTypes.func,
-  handleEmail : PropTypes.func
+  handleEmail : PropTypes.func,
+  selected:PropTypes.func
 };
 
 export default ViewOneArticle;

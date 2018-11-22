@@ -1,6 +1,6 @@
 import React from "react";
 import {shallow } from "enzyme";
-import CommentsCard ,{ViewCard}from "../../views/commentsViews/commentsCard";
+import CommentsCard ,{ViewCard, Selected}from "../../views/commentsViews/commentsCard";
 import CommentsForm from "../../views/commentsViews/form";
 
 const commentProps = {
@@ -41,4 +41,13 @@ it("comments card renders ", () => {
   let card = shallow(<ViewCard {...commentProps} />);
   card.contains(<div className="comment-profile" />);
   
+});
+it("comments card with selected section renders ", () => {
+  const selectedProps = {
+  
+    section:{article_section:"yui"},
+   
+  };
+  let card = shallow(<Selected {...selectedProps} />);
+  card.contains(<div className="selected-box"/>);
 });

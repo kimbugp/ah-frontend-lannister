@@ -5,7 +5,9 @@ import { Like} from "../../components/articles/LikeDislike";
 describe("Likedislike component", () => {
   const handleClick = jest.fn();
   const preventDefault = jest.fn();
+  
   const props = {
+    fetchOneArticle:jest.fn,
     hasLiked: false,
     hasDisLiked: false,
     updateLikeDislikeArticle: jest.fn,

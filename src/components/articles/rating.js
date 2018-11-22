@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 import { toast } from "react-toastify";
 import "../../assets/articleAssets/rating.scss";
 import { star } from "../../assets/articleAssets/svgIcons";
+import { fetchOneArticle } from "../../actions/articleActions/articleAction";
 
 let rate = null;
 const toastMsg = (msgType, msg) => {
@@ -16,7 +17,6 @@ const toastMsg = (msgType, msg) => {
   });
 };
 export class Rating extends Component {
-  
   state = {
     popoverOpen: false
   };
@@ -26,9 +26,9 @@ export class Rating extends Component {
   toggle = () => {
     this.setState({ popoverOpen: true });
   };
-handleCancel=()=>{
-  this.setState({ popoverOpen: false });
-}
+  handleCancel = () => {
+    this.setState({ popoverOpen: false });
+  };
 
   handleSubmit = () => {
     if (this.props.error.length > 0) {
@@ -45,12 +45,14 @@ handleCancel=()=>{
       this.setState({ popoverOpen: false });
     }
   };
-
+  componentWillUpdate() {
+    this.props.fetchOneArticle(this.props.slug);
+  }
   handleRenderingStars = () => {
     return (
       <div className="rate">
         {this.props.rating}
-        <div data-md-tooltip="rate this article" >
+        <div data-md-tooltip="rate this article">
           <svg
             id="Popover1"
             style={{}}
@@ -82,8 +84,9 @@ handleCancel=()=>{
             />
             <Button className="submit-color" onClick={this.handleSubmit}>
               submit
-            </Button> {""}
-            <Button className="submit-color" onClick={this.handleCancel} >
+            </Button>{" "}
+            {""}
+            <Button className="submit-color" onClick={this.handleCancel}>
               Cancel
             </Button>
           </PopoverBody>
@@ -102,7 +105,8 @@ Rating.propTypes = {
   rateArticle: PropTypes.func,
   slug: PropTypes.string,
   error: PropTypes.string,
-  rating: PropTypes.string
+  rating: PropTypes.string,
+  fetchOneArticle:PropTypes.func
 };
 const mapStateToProps = state => ({
   hasRated: state.rateReducer.hasRated,
@@ -111,5 +115,5 @@ const mapStateToProps = state => ({
 });
 export default connect(
   mapStateToProps,
-  { rateArticle }
+  { rateArticle, fetchOneArticle }
 )(Rating);

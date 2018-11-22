@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import "../../assets/articleAssets/likeDislike.css";
 import { LIKED, DISLIKED } from "../../utils/localStorageItems";
+import { fetchOneArticle } from "../../actions/articleActions/articleAction";
 
 export class Like extends Component {
   state = { liked: "", disliked: "" };
@@ -19,6 +20,9 @@ export class Like extends Component {
     } else if (nextProps.hasDisLiked || DISLIKED) {
       this.setState({ disliked: "clicked", liked: "" });
     }
+  }
+  componentWillUpdate() {
+    this.props.fetchOneArticle(this.props.slug);
   }
   handleRenderingIcons = (id, name, className) => {
     return (
@@ -51,7 +55,8 @@ Like.propTypes = {
   updateLikeDislikeArticle: PropTypes.func,
   slug: PropTypes.string,
   liking: PropTypes.string,
-  disliking: PropTypes.disliking
+  disliking: PropTypes.disliking,
+  fetchOneArticle:PropTypes.func
 };
 export const mapStateToProps = state => ({
   hasLiked: state.likeDislikeReducer.hasLiked,
@@ -61,5 +66,5 @@ export const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { updateLikeDislikeArticle }
+  { updateLikeDislikeArticle, fetchOneArticle }
 )(Like);
