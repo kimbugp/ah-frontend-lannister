@@ -65,15 +65,15 @@ export const publishNewArticleAction = slug => dispatch => {
     });
 };
 
-export const retrieveAllArticles = () => dispatch => {
+export const retrieveAllArticles = (url) => dispatch => {
   return axios
-    .get(API_URLS.FETCH_CREATE_ARTICLES, {
+    .get(url, {
       headers: myHeaders
     })
     .then(res => {
       const fetchall = {
         type: ACTION_TYPE.VIEW_ARTICLES,
-        payload: res.data.articles.results
+        payload: res.data.articles
       };
       dispatch(fetchall);
       localStorage.setItem("hasLiked", false);

@@ -9,6 +9,7 @@
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+$primary-colour: rgba(119, 20, 137, 0.7);
 
 #logo_img {
   height: 30px;
@@ -26,16 +27,29 @@ html {
 }
 
 .pic-container {
-  column-count: 3;
+  // column-count: 5;
   column-gap: 1.5em;
   width: 80%;
   margin: 0 auto;
 }
-
+.pic-container{
+  display: flex;
+  flex-wrap: nowrap;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-left: 120px;
+  padding-right: 90px;
+}
 .article-container {
-  column-count: 1;
+  column-count: 3;
   column-gap: 1.5em;
-  width: 80%;
+  width: 33.33%;
   margin: 0 auto;
 }
 
@@ -43,7 +57,7 @@ html {
   margin-top: 150px;
 }
 .containers {
-  // column-count: 1;
+  column-count: 1;
   width: 100%;
   padding-left: 40px;
   padding-right: 40px !important;
@@ -62,13 +76,13 @@ html {
 }
 
 .article-column {
-  /* border: 1px solid red; */
   background: #fff;
+  width:30%;
   -webkit-column-break-inside: avoid;
   margin-bottom: 10px;
+  margin-left: 20px;
 }
 
-/*  On large screens */
 @media only screen and (min-width: 1024px) {
   .pic-container {
     column-count: 3;
@@ -518,3 +532,16 @@ a:hover {
 .commentBoxVisible{
   visibility:visible !important
 }
+.more-btn{
+  width:100% !important;
+  bottom: 0px;
+  position:fixed;
+  opacity:2.1;
+  background-color: #fff;
+}
+.end-view{
+  background: $primary-colour;
+  color: #fff;
+  opacity: 0.5;
+}
+  

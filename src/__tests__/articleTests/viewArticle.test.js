@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { ViewArticles } from "../../components/articles/viewArticles";
-import AllArticles from "../../views/articles/viewArticles";
+import AllArticles, { ArticleCard } from "../../views/articles/viewArticles";
 import ViewAnArticle from "../../views/articles/viewArticle";
 import SideBar from "../../views/articles/sideBar";
 import EmailModal from "../../views/articles/emailModal";
@@ -110,4 +110,16 @@ it("calls handle submit", () => {
   };
   let component = shallow(<ViewArticle {...props} />);
   expect(component.instance().handleClick()).toBeUndefined();
+});
+it("articles are paginated", () => {
+  let dispatch = jest.fn();
+  let props = { dispatch };
+  let component = shallow(<ViewArticles {...props} />);
+  component.instance().handleScroll(window.onscroll());
+  expect(dispatch).toBeCalled();
+});
+
+it("article card is rendered", () => {
+  let component = shallow(<ArticleCard />);
+  expect(component.length).toEqual(1);
 });
