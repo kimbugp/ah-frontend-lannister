@@ -1,8 +1,9 @@
-import {COMMENTS } from "../actionTypes";
+import { COMMENTS } from "../actionTypes";
 import axios from "axios";
 import { BASE_URL } from "../../appUrls/index";
+import { toast } from "react-toastify";
 
-const getComments = (slug) => dispatch => {
+const getComments = slug => dispatch => {
   axios
     .get(`${BASE_URL}/api/articles/${slug}/comments/`, headers())
     .then(res => {
@@ -19,7 +20,7 @@ const getComments = (slug) => dispatch => {
     });
 };
 
-export const createComment = (slug,data) => dispatch => {
+export const createComment = (slug, data) => dispatch => {
   axios
     .post(`${BASE_URL}/api/articles/${slug}/comments/`, data, headers())
     .then(res => {
@@ -38,7 +39,7 @@ function headers() {
   };
 }
 
-export const deleteComment = (slug,id) => dispatch => {
+export const deleteComment = (slug, id) => dispatch => {
   axios
     .delete(`${BASE_URL}/api/articles/${slug}/comments/${id}`, headers())
     .then(res => {
@@ -49,9 +50,13 @@ export const deleteComment = (slug,id) => dispatch => {
     });
 };
 
-export const createThread=(slug,data)=>dispatch=>{
+export const createThread = (slug, data) => dispatch => {
   axios
-    .post(`${BASE_URL}/api/articles/${slug}/comments/${data.id}/thread`, data.body,headers())
+    .post(
+      `${BASE_URL}/api/articles/${slug}/comments/${data.id}/thread`,
+      data.body,
+      headers()
+    )
     .then(res => {
       dispatch({
         type: COMMENTS.CREATE_THREAD,
@@ -59,3 +64,31 @@ export const createThread=(slug,data)=>dispatch=>{
       });
     });
 };
+
+export const likeComment = (slug, id) => dispatch => {
+  axios
+    .post(`${BASE_URL}/api/articles/${slug}/comments/${id}/like`,{}, headers())
+    .then(res => {
+      dispatch(dispatchLike(res.data.payload));
+    }).catch(error =>{
+      toast.error(error.response.data.comments.message, {
+        autoClose: 3500,
+        hideProgressBar: true
+      });
+    });
+   
+};
+export const unlikeComment = (slug, id) => dispatch => {
+  axios
+    .delete(`${BASE_URL}/api/articles/${slug}/comments/${id}/unlike`, headers())
+    .then(res => {
+      dispatch(dispatchLike(res.data.payload));
+    }).catch(error =>{
+      toast.error(error.response.data.comments.message, {
+        autoClose: 3500,
+        hideProgressBar: true
+      });});};
+const dispatchLike = payload => ({
+  type: COMMENTS.LIKE_COMMENT,
+  payload
+});

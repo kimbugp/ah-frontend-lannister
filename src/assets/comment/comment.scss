@@ -12,6 +12,7 @@ $border: 1px solid rgba(0, 0, 0, 0.09);
   margin: 5px 0 15px;
   border: $border;
 }
+
 .btn-primary {
   color: #fff !important;
   background-color: $primary-colour !important;
@@ -97,4 +98,24 @@ $border: 1px solid rgba(0, 0, 0, 0.09);
 .selected-box{
   color: grey;
  }
- 
+.btn-link{
+  color:$primary-colour;
+}
+.btn-link:hover{
+  opacity: 0.8;
+  color:$primary-colour;
+}
+.like-comment{
+  float: right;
+}
+.like-icon{
+  color: $primary-colour;
+  padding-right: 6px;
+}
+.like-icon:hover{
+  cursor: pointer;
+  opacity: 0.5;
+}
+.replies-btn{
+  width: 80px;
+}

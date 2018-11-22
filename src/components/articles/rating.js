@@ -6,7 +6,6 @@ import { Button, Popover, PopoverHeader, PopoverBody } from "reactstrap";
 import PropTypes from "prop-types";
 import { toast } from "react-toastify";
 import "../../assets/articleAssets/rating.scss";
-import { star } from "../../assets/articleAssets/svgIcons";
 import { fetchOneArticle } from "../../actions/articleActions/articleAction";
 
 let rate = null;
@@ -18,30 +17,24 @@ const toastMsg = (msgType, msg) => {
 };
 export class Rating extends Component {
   state = {
-    popoverOpen: false
+    popoverOpen: false,
   };
   handleRating = newRating => {
     rate = newRating;
   };
   toggle = () => {
-    this.setState({ popoverOpen: true });
+    this.setState({ popoverOpen: !this.state.popoverOpen });
   };
   handleCancel = () => {
     this.setState({ popoverOpen: false });
   };
 
   handleSubmit = () => {
-    if (this.props.error.length > 0) {
-      toastMsg(toast.error, this.props.error);
-      this.setState({ popoverOpen: false });
-    } else if (rate === null) {
+    if (rate === null) {
       toastMsg(toast.warn, "you have not rated");
-      this.setState({ popoverOpen: false });
     } else {
       const rating = { rate: { rating: rate } };
-      toastMsg(toast.success, "your rate has been added");
       this.props.rateArticle(rating, this.props.slug);
-
       this.setState({ popoverOpen: false });
     }
   };
@@ -53,18 +46,7 @@ export class Rating extends Component {
       <div className="rate">
         {this.props.rating}
         <div data-md-tooltip="rate this article">
-          <svg
-            id="Popover1"
-            style={{}}
-            onClick={this.toggle}
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-          >
-            <path fill="none" d="M24 24H0V0h24v24z" />
-            <path d={star} />
-          </svg>
+          <i className="fas fa-star" id="Popover1" onClick={this.toggle} />
         </div>
         <Popover
           placement="right"
@@ -106,7 +88,7 @@ Rating.propTypes = {
   slug: PropTypes.string,
   error: PropTypes.string,
   rating: PropTypes.string,
-  fetchOneArticle:PropTypes.func
+  fetchOneArticle: PropTypes.func
 };
 const mapStateToProps = state => ({
   hasRated: state.rateReducer.hasRated,

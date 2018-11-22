@@ -3,12 +3,15 @@ import configureMockStore from "redux-mock-store";
 import getComments, {
   createComment,
   deleteComment,
-  createThread
+  createThread,
+  likeComment,
+  unlikeComment
 } from "../../actions/commentActions/commentActions";
 import axios from "axios";
 import { BASE_URL } from "../../appUrls/index";
 import commentReducer from "../../reducers/commentReducer/commentReducer";
 import {COMMENTS} from "../../actions/actionTypes";
+
 const comment = {
   comment: {
     body: "His namdgjjnfgd gndfgn"
@@ -38,6 +41,12 @@ describe("Comments", () => {
   it("creates replies to threads", async () => {
     testAction("thread", `${THREAD}`, 201);
   });
+  it("likes a comment", async () => {
+    testAction("post", `${COMMENTS_URL}2/like`, 200);
+  });
+  it("unlikes a comment", async () => {
+    testAction("delete", `${COMMENTS_URL}2/unlike`, 200);
+  });
 });
 describe("Comment Reducer", () => {
   const initialState = {
@@ -46,7 +55,8 @@ describe("Comment Reducer", () => {
     previous: null,
     results: [],
     thread: [],
-    comment: []
+    comment: [],
+    like:[]
   };
   it("returns comments data", () => {
     expect(commentReducer(initialState, { type: COMMENTS.GET_COMMENTS, payload: {} }));
@@ -60,17 +70,23 @@ describe("Comment Reducer", () => {
   it("creates a thread", () => {
     expect(commentReducer(initialState, { type: COMMENTS.CREATE_THREAD, payload: {} }));
   });
+  it("returns new state on LIKE_COMMENT ACTION TYPE", () => {
+    expect(commentReducer(initialState, { type: COMMENTS.LIKE_COMMENT, payload: {} }));
+  });
 });
 function testAction(method, url, status) {
   if (method === "post") {
     mock.onPost(url).reply(status, comment);
     createComment("slug", comment)(store.dispatch);
+    likeComment("slug",2)(store.dispatch);
   } else if (method === "get") {
     mock.onGet(url).reply(status, comment);
     getComments("slug")(store.dispatch);
   } else if (method === "delete") {
     mock.onDelete(url).reply(status, comment);
     deleteComment("slug", 2)(store.dispatch);
+    unlikeComment("slug",2)(store.dispatch);
+
   } else if (method === "thread") {
     let data = { body: {}, id: 2 };
     mock.onPost(url).reply(status, comment);
