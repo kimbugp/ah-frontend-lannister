@@ -57,7 +57,7 @@ export const publishNewArticleAction = slug => dispatch => {
     .then(data => {
       dispatch({
         type: ACTION_TYPE.PUBLISH_ARTICLE,
-        payload: data
+        payload: data.articles
       });
     })
     .catch(error => {
@@ -94,7 +94,6 @@ export const fetchOneArticle = slug => dispatch => {
         type: ACTION_TYPE.VIEW_ONE_ARTICLE,
         payload: res.data.article
       });
-     
     })
     .catch(error => {
       toast.error(error, { autoClose: 3500, hideProgressBar: true });
@@ -111,6 +110,52 @@ export const shareArticle = (email, slug) => async dispatch => {
       });
       dispatch({
         type: ACTION_TYPE.SHARE_ARTICLE
+      });
+    })
+    .catch(error => {
+      toast.error(error, { autoClose: 3500, hideProgressBar: true });
+    });
+};
+
+export const getPublishedArticles = () => dispatch => {
+  return axios
+    .get(API_URLS.PUBLISHED_ARTICLES, headers())
+    .then(res => {
+      dispatch({
+        type: ACTION_TYPE.PUBLISHED_ARTICLES,
+        payload: res.data.articles
+      });
+    })
+    .catch(error => {
+      toast.error(error, { autoClose: 3500, hideProgressBar: true });
+    });
+};
+
+export const getDraftArticles = () => dispatch => {
+  return axios
+    .get(API_URLS.DRAFTED_ARTICLES, headers())
+    .then(res => {
+      dispatch({
+        type: ACTION_TYPE.DRAFTED_ARTICLES,
+        payload: res.data.articles
+      });
+    })
+    .catch(error => {
+      toast.error(error, { autoClose: 3500, hideProgressBar: true });
+    });
+};
+
+export const deleteOneArticle = slug => dispatch => {
+  return axios
+    .delete(BASE_URL + `/api/articles/${slug}/`, headers())
+    .then(res => {
+      toast.success("Article Deleted Succesfully", {
+        autoClose: 3500,
+        hideProgressBar: true
+      });
+      dispatch({
+        type: ACTION_TYPE.DELETE_ONE_ARTICLE,
+        payload: res.data
       });
     })
     .catch(error => {

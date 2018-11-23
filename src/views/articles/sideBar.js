@@ -12,10 +12,7 @@ import {
   GooglePlusIcon,
   LinkedinIcon
 } from "react-share";
-import { favorite } from "../../assets/articleAssets/svgIcons";
-import Rating from "../../components/articles/rating";
 import EmailModal from "./emailModal";
-import Like from "../../components/articles/LikeDislike";
 
 const SideBarAction = ({ data, emailShare, handleEmail }) => {
   const shareUrl = `https://ah-frontend-lannister.herokuapp.com/view-article/${
@@ -23,9 +20,9 @@ const SideBarAction = ({ data, emailShare, handleEmail }) => {
   }`;
   const title = data.title;
   return (
-    <div className="sideBar col-md-2 col-xs-12">
+    <div className="sideBar">
+      <div><span id="share_text">Share</span></div>
       <div className="share">
-        <p className="categories">Share</p>
         <EmailModal emailShare={emailShare} handleEmail={handleEmail} />
         <p>
           <div className="Demo__some-network">
@@ -82,23 +79,6 @@ const SideBarAction = ({ data, emailShare, handleEmail }) => {
             <WhatsappIcon size={32} round />
           </WhatsappShareButton>
         </div>
-        <div className="sep" />
-        <br />
-        <p className="categories">Status</p>
-        <Like disliking={data.dislikes} liking={data.likes} />
-        <Rating rating={data.average_rating} />
-        <br />
-        <a href="#comments">{data.favorites_count}</a>{" "}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-        >
-          <path fill="none" d="M24 24H0V0h24v24z" />
-          <path d={favorite} />
-        </svg>
-        <br />
       </div>
     </div>
   );

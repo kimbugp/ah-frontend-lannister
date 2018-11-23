@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "../../components/navigation/navBar";
-import "../../assets/articleAssets/demo2.scss";
+import "../../assets/articleAssets/articlepage.scss";
 import PropTypes from "prop-types";
 import placeholder from "../../assets/img/placeholder.jpg";
 
@@ -13,6 +13,7 @@ const ViewAllArticles = ({ results }) => {
   return (
     <div>
       <NavBar />
+      <br />
       <div className="pic-container">{showArticles}</div>
     </div>
   );

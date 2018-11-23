@@ -3,7 +3,7 @@ import NavBar from "../../components/navigation/navBar";
 import PropTypes from "prop-types";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import "../../assets/articleAssets/demo2.scss";
+import "../../assets/articleAssets/articlepage.scss";
 import Modules from "../../utils/editortoolbar";
 import { Col, Row, Button, FormGroup, Input } from "reactstrap";
 
@@ -22,7 +22,7 @@ const newArticle = ({
 }) => {
   return (
     <div>
-      <NavBar />
+      <NavBar /><br/>
       <div className="containers">
         <Row form>
           <h6 id="compose"> New Article</h6>
@@ -51,11 +51,11 @@ const newArticle = ({
                       <FormGroup>
                         <Button
                           href=""
-                          className="image-btn"
+                          className="image-btn upload-btn-secondary"
                           data-md-tooltip="Upload Image Title"
                           onClick={handleUpload}
                         >
-                          <i className="material-icons">insert_photo</i>
+                          <i className="material-icons">cloud_upload</i>
                         </Button>
                       </FormGroup>
                     </Col>

@@ -32,19 +32,23 @@ export class Like extends Component {
   render() {
     return (
       <div>
-        {this.props.liking}
-        {this.handleRenderingIcons(
-          "true",
-          "like",
-          `fas fa-thumbs-up ${this.state.liked}`
-        )}
+        <a data-md-tooltip="like article">
+          {this.props.liking}
+          {this.handleRenderingIcons(
+            "true",
+            "like",
+            `fas fa-thumbs-up ${this.state.liked}`
+          )}
+        </a>
         <br />
-        {this.props.disliking}
-        {this.handleRenderingIcons(
-          "false",
-          "dislike",
-          `fas fa-thumbs-down ${this.state.disliked}`
-        )}
+        <a data-md-tooltip="Dislike article">
+          {this.props.disliking}
+          {this.handleRenderingIcons(
+            "false",
+            "dislike",
+            `fas fa-thumbs-down ${this.state.disliked}`
+          )}
+        </a>
       </div>
     );
   }

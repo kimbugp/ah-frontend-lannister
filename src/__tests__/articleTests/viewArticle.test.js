@@ -37,7 +37,7 @@ it("view article component returns a div", () => {
   };
   let component = shallow(<SideBar article={article} data={data} />);
   var node = component.find("p");
-  expect(node.length).toEqual(6);
+  expect(node.length).toEqual(4);
 });
 
 it("viewing articles", () => {
@@ -123,3 +123,17 @@ it("article card is rendered", () => {
   let component = shallow(<ArticleCard />);
   expect(component.length).toEqual(1);
 });
+
+it("email share component", () => {
+  let dispatch = jest.fn();
+  let handleEmail = jest.fn();
+  let props = {
+    dispatch,
+    handleEmail
+  };
+  const component = shallow(<EmailModal {...props} />);
+  component;
+  var node = component.find("Label");
+  expect(node.length).toEqual(1);
+});
+

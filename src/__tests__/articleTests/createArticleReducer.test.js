@@ -19,4 +19,32 @@ describe("create article reducers", () => {
     };
     expect(articlesReducer({}, startAction)).toEqual({});
   });
+
+  // it("should handle view all articles", () => {
+  //   const startAction = {
+  //     type: ACTION_TYPES.VIEW_ARTICLES
+  //   };
+  //   expect(articlesReducer({}, startAction)).toEqual({});
+  // });
+
+  it("should handle fetch one article", () => {
+    const startAction = {
+      type: ACTION_TYPES.VIEW_ONE_ARTICLE
+    };
+    expect(articlesReducer({}, startAction)).toEqual({});
+  });
+
+  it("should handle fetch one article", () => {
+    const startAction = {
+      type: ACTION_TYPES.VIEW_ONE_ARTICLE
+    };
+    expect(articlesReducer({}, startAction)).toEqual({});
+  });
+
+  it("should handle share an article", () => {
+    const startAction = {
+      type: ACTION_TYPES.SHARE_ARTICLE
+    };
+    expect(articlesReducer({}, startAction)).toEqual({});
+  });
 });

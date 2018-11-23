@@ -29,69 +29,69 @@ class NavBar extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/view-articles">AUTHORS HAVEN</NavbarBrand>
+        <Navbar light expand="md" id="mynav">
+          <NavbarBrand href="/view-articles" id="navbar-brand">AUTHORS HAVEN</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <ul className="navbar-nav">
                 <li className="nav-item active">
-                  <a className="nav-link" href="/view-articles">
+                  <a className="nav-link" href="/view-articles" id="navv-link">
                     Finance
                   </a>
                 </li>
                 <li className="nav-item active">
-                  <a className="nav-link" href="/view-articles">
+                  <a className="nav-link" href="/view-articles" id="navv-link">
                     Lifestyle
                   </a>
                 </li>
                 <li className="nav-item active">
-                  <a className="nav-link" href="/view-articles">
+                  <a className="nav-link" href="/view-articles" id="navv-link">
                     Travel
                   </a>
                 </li>
                 <li className="nav-item active">
-                  <a className="nav-link" href="/view-articles">
+                  <a className="nav-link" href="/view-articles" id="navv-link">
                     Biology
                   </a>
                 </li>
                 <li className="nav-item active">
-                  <a className="nav-link" href="/view-articles">
+                  <a className="nav-link" href="/view-articles" id="navv-link">
                     Health
                   </a>
                 </li>
                 <li className="nav-item active ">
-                  <a className="nav-link" href="/view-articles">
+                  <a className="nav-link" href="/view-articles" id="navv-link">
                     Sports
                   </a>
                 </li>
                 <li className="nav-item active">
-                  <a className="nav-link" href="/view-articles">
+                  <a className="nav-link" href="/view-articles" id="navv-link">
                     Movies
                   </a>
                 </li>
                 <li className="nav-item active">
-                  <a className="nav-link" href="/view-articles">
+                  <a className="nav-link" href="/view-articles" id="navv-link">
                     Music
                   </a>
                 </li>
                 <li className="nav-item active">
-                  <a className="nav-link" href="/view-articles">
+                  <a className="nav-link" href="/view-articles" id="navv-link">
                     Science
                   </a>
                 </li>
                 <li className="nav-item active">
-                  <a className="nav-link" href="/view-articles">
+                  <a className="nav-link" href="/view-articles" id="navv-link">
                     Tech
                   </a>
                 </li>
                 <li className="nav-item active">
-                  <a className="nav-link" href="/view-articles">
+                  <a className="nav-link" href="/view-articles" id="navv-link">
                     Education
                   </a>
                 </li>
                 <li className="nav-item active">
-                  <a className="nav-link" href="/view-articles">
+                  <a className="nav-link" href="/view-articles" id="navv-link">
                     More
                   </a>
                 </li>
@@ -112,7 +112,7 @@ class NavBar extends React.Component {
                       <DropdownItem href="/view-articles">
                         View Articles
                       </DropdownItem>
-                      <DropdownItem href="/">My stories</DropdownItem>
+                      <DropdownItem href="/me/stories">My stories</DropdownItem>
                       <DropdownItem href="/">BookMarks</DropdownItem>
                       <DropdownItem href="/">Stats</DropdownItem>
                       <DropdownItem divider />

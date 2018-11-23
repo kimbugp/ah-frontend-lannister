@@ -25,6 +25,11 @@ export class CreateArticle extends Component {
   componentWillMount() {
     this.categories();
   }
+  componentWillReceiveProps(nextprops){
+    if(nextprops.articles.publish.message){
+      nextprops.history.push("/view-articles");
+    }
+  }
 
   handleChange = event => {
     this.setState({

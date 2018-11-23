@@ -33,7 +33,7 @@ const userProfile = props => {
 
   return (
     <React.Fragment>
-      <NavBar />
+      <NavBar /><br/>
       <div className="User-block">
         <div className="user">
           <div className="usr-info">

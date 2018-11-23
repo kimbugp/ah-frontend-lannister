@@ -12,7 +12,7 @@ const EditProfileView = props => {
 
   return (
     <React.Fragment>
-      <NavBar />
+      <NavBar /><br/>
       <div className="editProfile">
         <div className="container">
           <Form onSubmit={handleEditProfile}>
